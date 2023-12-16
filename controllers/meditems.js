@@ -28,7 +28,7 @@ const newMeditem = (req, res) => {
 const create = async (req, res) => {
     try {
         await Meditem.create(req.body)
-        res.redirect('/meditems')
+        res.redirect('/current')
     } catch (err) {
         console.log(err)
         res.render('meditems/new', {
@@ -38,8 +38,17 @@ const create = async (req, res) => {
     }
 }
 
+const show = async (req, res) => {
+    const meditem = await Meditem.findById(req.params.id);
+    res.render('meditems/show', {
+        title: 'Item Detail',
+        meditem
+    })
+}
+
 module.exports = {
     new: newMeditem,
     create,
     index,
+    show,
 }

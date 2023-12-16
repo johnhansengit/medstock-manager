@@ -5,6 +5,7 @@ const meditemsCtrl = require('../controllers/meditems');
 
 router.get('/', meditemsCtrl.index);
 router.get('/new', meditemsCtrl.new);
+router.get('/:id', meditemsCtrl.show);
 router.post('/', meditemsCtrl.create);
 
 module.exports = router;

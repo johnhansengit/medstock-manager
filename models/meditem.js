@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const { families } = require('../config/constants')
 
-const lotSchema = new Schema({
+const stockSchema = new Schema({
     lotNo: String,
     expDate: Date,
     stock: {
@@ -31,7 +31,7 @@ const meditemSchema = new Schema({
         type: Boolean,
         default: false
     },
-    lots: [lotSchema],
+    inStock: [stockSchema],
     totalStock: Number,
     firstExp: Date,
     lastExp: Date,
@@ -44,13 +44,13 @@ const meditemSchema = new Schema({
 // (NOTE: only works when .save() is called, not .update() or findOneAndUpdate(), etc.)
 meditemSchema.pre('save', function (next) {
     // Calculate meditem.totalStock
-    this.totalStock = this.lots.reduce((sum, lot) => sum + (lot.stock || 0), 0);
+    this.totalStock = this.inStock.reduce((sum, stock) => sum + (stock.stock || 0), 0);
 
     //Calculate meditem.firstExp and meditem.lastExp
-    if (this.lots.length > 0) {
-        const sortedLots = this.lots.slice().sort((a, b) => a.expDate - b.expDate);
-        this.firstExp = sortedLots[0].expDate;
-        this.lastExp = sortedLots[sortedLots.length - 1].expDate;
+    if (this.inStock.length > 0) {
+        const sortedStock = this.inStock.slice().sort((a, b) => a.expDate - b.expDate);
+        this.firstExp = sortedStock[0].expDate;
+        this.lastExp = sortedStock[sortedStock.length - 1].expDate;
     } else {
         this.firstExp = null;
         this.lastExp = null;

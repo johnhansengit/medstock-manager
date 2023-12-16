@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+
+
+    <form action="/current/<%= meditem._id %>/stock" method="POST">
+        Lot No.: <input type="text" name="lotNo">
+        Expiration Date: <input type="date" name="expDate">
+        Units added to stock: <input type="text" name="stock">
+        <button type="submit">Add Stock</button>
+    </form>
+
+
+
+    <%- include('../partials/footer') %>

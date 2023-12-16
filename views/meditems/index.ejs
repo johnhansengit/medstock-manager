@@ -1,0 +1,33 @@
+<%- include('../partials/header') %>
+<%- include('../partials/subheader') %>
+
+<table>
+    <thead>
+        <tr>
+            <th><img src="../../public/images/star.svg" alt=""></th>
+            <th>Brand Name</th>
+            <th>Generic Name</th>
+            <th>Dose</th>
+            <th>Family</th>
+            <th>Nearest Exp.</th>
+            <th>Par Level</th>
+            <th>Current Stock</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% meditems.forEach((item) => { %>
+            <tr>
+                <td></td>
+                <td><a href="/current/<%= item.id %>"><%= item.brandName %></a></td>
+                <td><%= item.genericName %></td>
+                <td><%= item.dose %></td>
+                <td><%= item.family %></td>
+                <td><%= item.firstExp %></td>
+                <td><%= item.parLevel %></td>
+                <td><%= item.totalStock %></td>
+            </tr>
+       <% }) %>
+    </tbody>
+</table>
+
+<%- include('../partials/footer') %>

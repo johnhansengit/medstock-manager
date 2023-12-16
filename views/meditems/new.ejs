@@ -1,9 +1,10 @@
 <%- include('../partials/header') %>
 
-    <form action="/meditems" method="POST">
+    <form action="/current" method="POST">
         <input type="text" name="brandName" placeholder="Brand Name">
         <input type="text" name="genericName" placeholder="Generic Name">
-        <select name="family">
+        <select name="family" placeholder="Item Family">
+            <option value="" disabled selected hidden>Item Family</option>
             <% families.forEach((family)=> { %>
                 <option value="<%= family %>">
                     <%= family %>
