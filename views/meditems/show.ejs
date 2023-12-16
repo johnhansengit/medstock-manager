@@ -1,4 +1,3 @@
-<%- include('../partials/header') %>
 
 star
 <%= meditem.family %>
@@ -14,14 +13,18 @@ star
             <th>Exp. Date</th>
             <th>Current Stock</th>
             <th></th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         <% meditem.inStock.forEach((stock) => { %>
-            <tr id="<%= stock._id %>">
+            <tr>
                 <td><%= stock.lotNo %></td>
                 <td><%= new Date(stock.expDate).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) %></td>
                 <td><%= stock.stock %></td>
+                <td><button onclick="addStock('<%= stock._id %>', '<%= meditem._id %>')">+</button></td>
+                <td><button onclick="depleteStock('<%= stock._id %>', '<%= meditem._id %>')">-</button></td>
                 <td><a href="#" onclick="quickDelete('<%= stock._id %>', '<%= meditem._id %>')">Delete</a></td>
             </tr>
        <% }) %>
@@ -79,9 +82,12 @@ Notes: <%= meditem.notes %>
             });
         }
 
+        function addStock(stockId, meditemId) {
+            window.location.href = `/current/${meditemId}/stock/${stockId}/add`;
+        }
+
+        function depleteStock(stockId, meditemId) {
+            window.location.href = `/current/${meditemId}/stock/${stockId}/deplete`;
+        }
 
     </script>
-    
-
-
-    <%- include('../partials/footer') %>
