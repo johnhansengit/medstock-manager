@@ -37,7 +37,19 @@ const update = async (req, res) => {
         const meditem = await Meditem.findById(req.params.id);
         const stock = meditem.inStock.id(req.params.stockId);
 
-        stock.stock = req.body.stock;
+        if (!stock) {
+            return res.status(404).send('Stock not found');
+        }
+
+        if (req.body.addedStock) {
+            const addedStock = parseInt(req.body.addedStock, 10);
+            stock.stock += addedStock;
+        }
+
+        if (req.body.depletedStock) {
+            const depletedStock = parseInt(req.body.depletedStock, 10);
+            stock.stock -= depletedStock;
+        }
 
         await meditem.save();
 

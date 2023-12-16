@@ -1,1 +1,14 @@
 Deplete stock
+
+<%= meditem.brandName %>
+<%= meditem.genericName %>
+<%= meditem.dose %>
+
+<%= stock.lotNo %>
+
+
+<form action="/current/<%= meditem._id %>/stock/<%= stock._id %>" method="POST">
+   Deplete: <input type="number" name="depletedStock" min="0" required> units
+
+    <button type="submit">Deplete Stock</button>
+</form>
