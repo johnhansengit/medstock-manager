@@ -16,17 +16,21 @@ const create = async (req, res) => {
 const deleteStock = async (req, res) => {
     try {
         const meditem = await Meditem.findById(req.params.id);
-        meditem.inStock.id(req.params.stockId).remove();
+        const stock = meditem.inStock.id(req.params.stockId);
+
+        if (!stock) {
+            return res.status(404).send('Stock not found');
+        }
+
+        meditem.inStock = meditem.inStock.filter(stock => stock._id.toString() !== req.params.stockId);
         await meditem.save();
-        res.redirect(`/current/${meditem._id}`);
+        res.status(200).send();
     } catch (err) {
         console.log(err);
-        res.render('meditems/show', {
-            title: 'Item Detail',
-            errorMsg: err.message
-        });
+        res.status(500).send(err.message);
     }
-}
+};
+
 
 const edit = async (req, res) => {
     try {

@@ -56,13 +56,10 @@ const show = async (req, res) => {
 const deleteItem = async (req, res) => {
     try {
         await Meditem.findByIdAndDelete(req.params.id)
-        res.redirect('/current');
+        res.status(200).send();
     } catch (err) {
         console.log(err);
-        res.render('meditems/show', {
-            title: 'Item Detail',
-            errorMsg: err.message
-        });
+        res.status(500).send(err.message);
     }
 }
 

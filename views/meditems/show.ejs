@@ -1,11 +1,87 @@
 <%- include('../partials/header') %>
 
+star
+<%= meditem.family %>
+<%= meditem.brandName %>
+<%= meditem.genericName %>
+<%= meditem.dose %> <%= meditem.form %>
+1 unit = <%= meditem.perUnit %>
 
-    <form action="/current/<%= meditem._id %>/stock" method="POST">
-        Lot No.: <input type="text" name="lotNo">
-        Expiration Date: <input type="month" name="expDate" value="<%= futureDate %>">
-        Units added to stock: <input type="text" name="stock" required>
-        <button type="submit">Add Stock</button>
-    </form>
+<table>
+    <thead>
+        <tr>
+            <th>Lot No.</th>
+            <th>Exp. Date</th>
+            <th>Current Stock</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% meditem.inStock.forEach((stock) => { %>
+            <tr id="<%= stock._id %>">
+                <td><%= stock.lotNo %></td>
+                <td><%= new Date(stock.expDate).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) %></td>
+                <td><%= stock.stock %></td>
+                <td><a href="#" onclick="quickDelete('<%= stock._id %>', '<%= meditem._id %>')">Delete</a></td>
+            </tr>
+       <% }) %>
+       <tr>
+        <td></td>
+        <td>TOTAL STOCK</td>
+        <td><%= meditem.totalStock %></td>
+       </tr>
+    </tbody>
+</table>
+
+<form action="/current/<%= meditem._id %>/stock" method="POST">
+    Lot No.: <input type="text" name="lotNo">
+    Expiration Date: <input type="month" name="expDate" value="<%= futureDate %>">
+    Units added to stock: <input type="text" name="stock" required>
+    <button type="submit">Add Stock</button>
+</form>
+
+par: <%= meditem.parLevel %>
+Notes: <%= meditem.notes %>
+
+
+ 
+
+    <a href="#" onclick="confirmDelete('<%= meditem._id %>')">Delete</a>
+
+    <script>
+        function confirmDelete(meditemId) {
+            if (confirm('Are you sure you want to delete this item?')) {
+                fetch(`/current/${meditemId}`, { method: 'DELETE' })
+                    .then(response => {
+                        if (response.ok) {
+                            window.location.href = '/current';
+                        } else {
+                            alert('An error occurred while deleting the item.');
+                        }
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
+            }
+        }
+
+        function quickDelete(stockId, meditemId) {
+            fetch(`/current/${meditemId}/stock/${stockId}`, { method: 'DELETE' })
+                .then(response => {
+                    if (response.ok) {
+                        window.location.reload();
+                    } else {
+                        alert('An error occurred while deleting the stock.');
+                    }
+                })
+            .catch(err => {
+                console.error('Error:', err);
+            });
+        }
+
+
+    </script>
+    
+
 
     <%- include('../partials/footer') %>
