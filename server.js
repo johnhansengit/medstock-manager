@@ -9,6 +9,7 @@ require('./config/database')
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const meditemsRouter = require('./routes/meditems')
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use(methodOverride('_method'));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/meditems', meditemsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

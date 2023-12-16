@@ -14,6 +14,8 @@
 - Express.js
 - MongoDB
 - Mongoose
+- SCSS
+- Gulp
 
 #### **_Original Wireframe_**
 
