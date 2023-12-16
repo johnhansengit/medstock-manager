@@ -4,23 +4,36 @@ const { families } = require('../config/constants')
 
 const stockSchema = new Schema({
     lotNo: String,
-    expDate: Date,
+    expDate: {
+        type: Date,
+        validate: {
+            validator: function(value) {
+                return value >= new Date();
+            },
+            message: 'Expiration date cannot be in the past.'
+        }
+    },
     stock: {
         type: Number,
-        min: 0
+        min: 0,
+        required: true
     }
 }, {
     timestamps: true
 });
 
 const meditemSchema = new Schema({
-    brandName: String,
+    brandName: {
+        type: String,
+        required: true
+    },
     genericName: String,
     dose: String,
     form: String,
     family: {
         type: String,
-        enum: families
+        enum: families,
+        required: true
     },
     perUnit: String,
     parLevel: {

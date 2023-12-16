@@ -1,9 +1,11 @@
 <%- include('../partials/header') %>
 
     <form action="/current" method="POST">
-        <input type="text" name="brandName" placeholder="Brand Name">
+        <img src="/images/star-outline.svg" alt="" class="star-toggle" id="star">
+        <input type="hidden" id="quickref" name="quickref" value="false">
+        <input type="text" name="brandName" placeholder="Brand Name" required>
         <input type="text" name="genericName" placeholder="Generic Name">
-        <select name="family" placeholder="Item Family">
+        <select name="family" placeholder="Item Family" required>
             <option value="" disabled selected hidden>Item Family</option>
             <% families.forEach((family)=> { %>
                 <option value="<%= family %>">
@@ -18,5 +20,18 @@
         <textarea name="notes" rows="10" cols="50">Notes...</textarea>
         <button type="submit">Add Item</button>
     </form>
+
+    <script>
+
+        document.getElementById('star').addEventListener('click', function () {
+                let isFilled = this.src.includes('star-filled.svg');
+                document.getElementById('quickref').value = isFilled;
+
+                this.src = isFilled ? '/images/star-outline.svg' : '/images/star-filled.svg';
+            });
+
+
+
+    </script>
 
     <%- include('../partials/footer') %>

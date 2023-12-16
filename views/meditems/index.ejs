@@ -4,7 +4,7 @@
 <table>
     <thead>
         <tr>
-            <th><img src="../../public/images/star.svg" alt=""></th>
+            <th><img src="/images/star-outline.svg" alt="" class="star-toggle"></th>
             <th>Brand Name</th>
             <th>Generic Name</th>
             <th>Dose</th>
@@ -17,12 +17,12 @@
     <tbody>
         <% meditems.forEach((item) => { %>
             <tr>
-                <td></td>
+                <td><img src="/images/star-outline.svg" alt="" class="star-toggle"></td>
                 <td><a href="/current/<%= item.id %>"><%= item.brandName %></a></td>
                 <td><%= item.genericName %></td>
                 <td><%= item.dose %></td>
                 <td><%= item.family %></td>
-                <td><%= item.firstExp %></td>
+                <td><%= new Date(item.firstExp).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) %></td>
                 <td><%= item.parLevel %></td>
                 <td><%= item.totalStock %></td>
             </tr>
