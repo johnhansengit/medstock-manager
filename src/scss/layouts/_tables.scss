@@ -1,6 +1,6 @@
 table {
     width: 100%;
-    border-collapse: collapse;
+    // border-collapse: collapse;
     font-weight: 300;
     background-color: $white;
 }
@@ -16,6 +16,7 @@ td {
 th {
     background-color: $dark2;
     color: $white;
+    border-radius: 5px 5px 0 0;
 }
 
 tr:hover {

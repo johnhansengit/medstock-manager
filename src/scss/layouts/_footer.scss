@@ -1,9 +1,32 @@
 footer {
     position: absolute;
+    left: 0;
     bottom: 0; 
     width: 100%;
     height: auto;
-    padding: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+        ". copyright user-options";
+    box-shadow: 0 -4px 8px 0 rgba(0, 0, 0, 0.5);
+    background-color: $light1;
+    padding: 15px;
+    align-items: center;
     text-align: center;
-    font-size: 12px;
+    font-size: 11px;
   }
+
+  #copyright {
+    grid-area: copyright;
+  }
+
+  #user-options {
+    grid-area: user-options;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 50px;
+}
+
+#user-options a {
+    margin-left: 3vw;
+}

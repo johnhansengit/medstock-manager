@@ -21,6 +21,12 @@ $dark-fade: #ff8473;
 $light-fade: #fff9d2;
 
 
+// JavaScript-accessible colors
+:root {
+    --light2: #bd83b8;
+    --white: rgb(250, 245, 245);
+  }
+
 // Font Families
 $main: 'M PLUS Rounded 1c', sans-serif;
 

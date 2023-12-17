@@ -6,11 +6,11 @@
         <div id="search-container">
             <form action="/search" method="get">
                 <input id="search-input" type="search" name="search" placeholder="Search">
-                <button class="round-btn" id="search-btn"><span id="mglass">&#9906;</span></label>
             </form>
+            <div id="mglass">&#9906;</div>
         </div>
         <button class="round-btn star-toggle">
-            <img src="/images/star-outline.svg" alt="" id="star-btn-subheader">
+            <img src="/images/star-filled.svg" alt="" id="star-btn-subheader">
         </button>
         <button class="round-btn" id="add-btn-subheader">
             +
@@ -20,3 +20,44 @@
         </button>
     </div>
 </section>
+
+<script>
+    let searchIsOpen = false;
+    const searchInput = document.getElementById('search-input');
+    const searchBtn = document.getElementById('search-container');
+    const mglass = document.getElementById('mglass'); 
+
+    searchBtn.addEventListener('click', toggleSearch);
+
+    mglass.addEventListener('click', function(event) {
+        if (searchIsOpen) {
+            searchInput.form.submit();
+        } else {
+            toggleSearch();
+        }
+        event.stopPropagation();
+    });
+
+    searchInput.addEventListener('click', function(event) {
+        event.stopPropagation(); 
+    });
+
+    function toggleSearch() {
+        if (!searchIsOpen) {
+            searchBtn.style.width = '300px';
+            searchBtn.style.borderRadius = '10px';
+            searchBtn.style.backgroundColor = 'var(--light2)';
+            searchInput.style.display = 'inline-block';
+            searchInput.style.opacity = '1';
+            searchInput.focus(); 
+            searchIsOpen = true;
+        } else {
+            searchBtn.style.width = '50px';
+            searchBtn.style.borderRadius = '50%';
+            searchBtn.style.backgroundColor = 'var(--white)';
+            searchInput.style.display = 'none';
+            searchInput.style.opacity = '0';
+            searchIsOpen = false;
+        }
+    }
+</script>
