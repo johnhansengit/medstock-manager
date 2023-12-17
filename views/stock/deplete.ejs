@@ -9,6 +9,16 @@ Deplete stock
 
 <form action="/current/<%= meditem._id %>/stock/<%= stock._id %>" method="POST">
    Deplete: <input type="number" name="depletedStock" min="0" required> units
+    Reason:
+
+    <select name="depletion" required>
+        <option value="" disabled selected hidden>Choose a reason</option>
+        <% depletions.forEach((reason)=> { %>
+            <option value="<%= reason %>">
+                <%= reason %>
+            </option>
+            <% }); %>
+    </select>
 
     <button type="submit">Deplete Stock</button>
 </form>

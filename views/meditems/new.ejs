@@ -4,7 +4,7 @@
         <input type="hidden" id="quickref" name="quickref" value="false">
         <input type="text" name="brandName" placeholder="Brand Name" required>
         <input type="text" name="genericName" placeholder="Generic Name">
-        <select name="family" placeholder="Item Family" required>
+        <select name="family" required>
             <option value="" disabled selected hidden>Item Family</option>
             <% families.forEach((family)=> { %>
                 <option value="<%= family %>">

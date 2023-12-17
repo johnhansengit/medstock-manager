@@ -10,6 +10,14 @@ const families = [
     'Consumables'
 ];
 
+const depletions = [
+    'Patient Use',
+    'Expired',
+    'Waste',
+    'Transfer Out'
+]
+
 module.exports = {
     families,
+    depletions
 }
