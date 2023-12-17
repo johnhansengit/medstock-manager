@@ -1,10 +1,26 @@
 // Color Palette
-$primary-color: #3498db;    // Example hex color
-$secondary-color: #2ecc71;
-$accent-color: #e74c3c;
-// ... other colors
+$off-black: #06142e;
+$dark1: #1b3358;
+$light1: #86a8cf;
+$dark2: #473e66;
+$light2: #bd83b8;
+$off-white: #fff3f4;
+$white: rgb(250, 245, 245);
+$alert: #f1916D;
+
+$analgesics: #e76f51;
+$corticosteroids: #264653;
+$antihistimines: #f4a261;
+$antiobiotics: #e9c46a;
+$vaccines: #2a9d8f;
+$iv-fluids: #b8d8e3;
+$lab: #287271;
+$consumables: #9db0ce;
+
+$dark-fade: #ff8473;
+$light-fade: #fff9d2;
+
 
 // Font Families
-$primary-font: 'M PLUS Rounded 1c', sans-serif;
-$secondary-font: 'Arial', sans-serif;
-// ... other fonts
+$main: 'M PLUS Rounded 1c', sans-serif;
+

@@ -1,10 +1,10 @@
 <%- include('../partials/header') %>
 <%- include('../partials/subheader') %>
 
-<table>
+<table id="current-stock-table">
     <thead>
         <tr>
-            <th><img src="/images/star-outline.svg" alt="" class="star-toggle"></th>
+            <th></th>
             <th>Brand Name</th>
             <th>Generic Name</th>
             <th>Dose</th>
@@ -17,7 +17,7 @@
     <tbody>
         <% meditems.forEach((item) => { %>
             <tr>
-                <td><img src="/images/star-outline.svg" alt="" class="star-toggle"></td>
+                <td><img src="/images/star-outline.svg" alt="" class="star-toggle" id="star-table"></td>
                 <td><a href="/current/<%= item.id %>"><%= item.brandName %></a></td>
                 <td><%= item.genericName %></td>
                 <td><%= item.dose %></td>

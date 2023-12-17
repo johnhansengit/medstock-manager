@@ -3,17 +3,20 @@
         <h1><%= title %></h1>
     </div>
     <div id="btns-row-container">
-        <button id="search-btn">
-            &#9906;
+        <div id="search-container">
+            <form action="/search" method="get">
+                <input id="search-input" type="search" name="search" placeholder="Search">
+                <button class="round-btn" id="search-btn"><span id="mglass">&#9906;</span></label>
+            </form>
+        </div>
+        <button class="round-btn star-toggle">
+            <img src="/images/star-outline.svg" alt="" id="star-btn-subheader">
         </button>
-        <button id="quickref-filter-btn">
-            <img src="/images/star-outline.svg" alt="" class="star-toggle">
-        </button>
-        <button class="add-btn" id="add-btn-subheader">
+        <button class="round-btn" id="add-btn-subheader">
             +
         </button>
-        <button class="deplete-btn" id="deplete-btn-subheader">
-            -
+        <button class="round-btn" id="deplete-btn-subheader">
+            
         </button>
     </div>
 </section>

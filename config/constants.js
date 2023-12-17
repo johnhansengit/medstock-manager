@@ -5,7 +5,6 @@ const families = [
     'Antiobiotics',
     'Vaccines',
     'IV Fluids',
-    'Diagnostics',
     'Lab',
     'Consumables'
 ];
