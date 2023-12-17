@@ -7,6 +7,7 @@
   --alert: rgb(225,83,70);
   --white: rgb(230, 250, 255);
   --lightgrey: rgb(228,236,241);
+  --grey: grey;
   --darkgrey: rgb(55,56,53);
   --black: rgb(24,52,59);
   --1: #ff6961;
@@ -46,7 +47,7 @@ a {
   color: var(--darkmain);
   text-decoration: none;
   transition: color 0.2s ease;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 a:hover {
@@ -69,6 +70,11 @@ a:hover {
   height: 20px;
   width: 20px;
   transform: translate(0, 2px);
+}
+
+#star-overlay {
+  height: 30px;
+  width: 30px;
 }
 
 button:hover {
@@ -105,6 +111,26 @@ button:hover {
   left: 50%;
   transform: translate(-47%, -55%);
   font-size: 40px;
+}
+
+.stock-btn {
+  height: 25px;
+  width: 25px;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.5);
+  background-color: var(--white);
+  font-size: 18px;
+  transition: all 0.2s ease;
+}
+
+.stock-btn:hover {
+  background-color: var(--starfill);
+}
+
+.stock-btn:active {
+  box-shadow: none;
+  background-color: var(--white);
 }
 
 #search-container {
@@ -255,7 +281,7 @@ nav ul li a:active {
   right: 50%;
   transform: translate(50%, -50%);
   z-index: 10;
-  width: 33%;
+  width: 50%;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.5);
@@ -264,6 +290,71 @@ nav ul li a:active {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+#overlay-top-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: ". family star";
+  align-items: center;
+  background-color: var(--1);
+  width: 100%;
+  padding-right: 5%;
+}
+
+#overlay-top-container div {
+  grid-area: family;
+  margin: 10px;
+  justify-self: center;
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--darkmain);
+}
+
+#overlay-top-container img {
+  grid-area: star;
+  justify-self: end;
+}
+
+#overlay-info-container {
+  margin: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--darkgrey);
+}
+
+#name-container {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+#brand-name,
+#generic-name {
+  font-size: 35px;
+  font-weight: 800;
+}
+
+#generic-name {
+  font-style: italic;
+  color: var(--grey);
+}
+
+#dose-form {
+  font-size: 25px;
+  font-weight: 800;
+}
+
+#units {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+#stock-form {
+  margin: 20px;
 }
 
 table {
@@ -307,6 +398,46 @@ td a:hover {
 #current-stock-table th:nth-child(3) {
   text-align: left;
   padding-left: 10px;
+}
+
+#filter-icon {
+  margin: 0px 5px;
+  transform: translate(0%, 15%);
+  height: 17px;
+  width: 17px;
+}
+
+#filter-icon:hover {
+  cursor: pointer;
+}
+
+#overlay-table {
+  width: 90%;
+}
+
+#overlay-table tr:last-child {
+  font-weight: 600;
+}
+
+#overlay-table tr:last-child:hover {
+  background-color: transparent;
+}
+
+#overlay-table tr:last-child td:nth-child(1),
+#overlay-table tr:last-child td:nth-child(2) {
+  border: none;
+}
+
+#overlay-table tr:hover td:nth-child(4),
+#overlay-table tr:hover td:nth-child(5),
+#overlay-table tr:hover td:nth-child(6) {
+  background-color: transparent;
+}
+
+#overlay-table td:nth-child(4) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 footer {

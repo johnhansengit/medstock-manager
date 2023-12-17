@@ -33,10 +33,54 @@ td a:hover {
     color: var(--white);
 }
 
+// STOCK TABLE
+
 #current-stock-table tr td:nth-child(2),
 #current-stock-table td:nth-child(3),
 #current-stock-table th:nth-child(2),
 #current-stock-table th:nth-child(3) {
     text-align: left;
     padding-left: 10px;
+}
+
+#filter-icon {
+    margin: 0px 5px;
+    transform: translate(0%, 15%);
+    height: 17px;
+    width: 17px;
+}
+
+#filter-icon:hover {
+    cursor: pointer;
+}
+
+// OVERLAY TABLE
+
+#overlay-table {
+    width: 90%;
+}
+
+#overlay-table tr:last-child {
+    font-weight: 600;
+}
+
+#overlay-table tr:last-child:hover {
+    background-color: transparent; 
+}
+
+#overlay-table tr:last-child td:nth-child(1),
+#overlay-table tr:last-child td:nth-child(2) {
+    border: none;
+}
+
+#overlay-table tr:hover td:nth-child(4),
+#overlay-table tr:hover td:nth-child(5),
+#overlay-table tr:hover td:nth-child(6) {
+    background-color: transparent;
+}
+
+#overlay-table td:nth-child(4) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }

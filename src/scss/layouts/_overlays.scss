@@ -4,7 +4,7 @@
     right: 50%;
     transform: translate(50%, -50%);
     z-index: 10;
-    width: 33%;
+    width: 50%;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.5);
@@ -13,4 +13,70 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+#overlay-top-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        ". family star";
+    align-items: center;
+    background-color: var(--1);
+    width: 100%;
+    padding-right: 5%
+}
+
+#overlay-top-container div {
+    grid-area: family;
+    margin: 10px;
+    justify-self: center;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--darkmain);
+}
+
+#overlay-top-container img {
+    grid-area: star;
+    justify-self: end;
+}
+
+#overlay-info-container {
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--darkgrey)
+}
+
+#name-container {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+#brand-name,
+#generic-name {   
+    font-size: 35px;
+    font-weight: 800;
+}
+
+#generic-name {
+    font-style: italic;
+    color: var(--grey);
+}
+
+#dose-form {
+    font-size: 25px;
+    font-weight: 800;
+}
+
+#units {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#stock-form {
+    margin: 20px; 
 }

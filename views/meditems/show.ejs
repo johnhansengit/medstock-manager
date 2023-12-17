@@ -1,56 +1,72 @@
+<%- include('../partials/header') %>
 
-star
-<%= meditem.family %>
-<%= meditem.brandName %>
-<%= meditem.genericName %>
-<%= meditem.dose %> <%= meditem.form %>
-1 unit = <%= meditem.perUnit %>
+<section id="stock-card-overlay">
 
-<table>
-    <thead>
-        <tr>
-            <th>Lot No.</th>
-            <th>Exp. Date</th>
-            <th>Current Stock</th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <% meditem.inStock.forEach((stock) => { %>
+    <div id="overlay-top-container">
+        <div><%= meditem.family %></div>
+        <img src="/images/star-outline.svg" alt="" class="star-toggle" id="star-overlay">
+    </div>
+
+    <div id="overlay-info-container">
+        <div id="name-container">
+            <div id="brand-name"><%= meditem.brandName %></div>
+            <div id="generic-name">(<%= meditem.genericName %>)</div>
+        </div>
+        
+        <div id="dose-form"><%= meditem.dose %> <%= meditem.form %></div>
+        
+        <div id="units">1 unit = <%= meditem.perUnit %></div>
+    </div>
+    
+    <table id="overlay-table">
+        <thead>
             <tr>
-                <td><%= stock.lotNo %></td>
-                <td><%= new Date(stock.expDate).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) %></td>
-                <td><%= stock.stock %></td>
-                <td><button onclick="addStock('<%= stock._id %>', '<%= meditem._id %>')">+</button></td>
-                <td><button onclick="depleteStock('<%= stock._id %>', '<%= meditem._id %>')">-</button></td>
-                <td><a href="#" onclick="quickDelete('<%= stock._id %>', '<%= meditem._id %>')">Delete</a></td>
+                <th>Lot No.</th>
+                <th>Exp. Date</th>
+                <th>Current Stock</th>
+                <th>+/- Stock</th>
+                <th>Delete Row</th>
             </tr>
-       <% }) %>
-       <tr>
-        <td></td>
-        <td>TOTAL STOCK</td>
-        <td><%= meditem.totalStock %></td>
-       </tr>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            <% meditem.inStock.forEach((stock) => { %>
+                <tr>
+                    <td><%= stock.lotNo %></td>
+                    <td><%= new Date(stock.expDate).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) %></td>
+                    <td><%= stock.stock %></td>
+                    <td>
+                        <button onclick="addStock('<%= stock._id %>', '<%= meditem._id %>')" class="stock-btn">+</button>
+                        <button onclick="depleteStock('<%= stock._id %>', '<%= meditem._id %>')"class="stock-btn">-</button>
+                    </td>
+                    <td><a href="#" onclick="quickDelete('<%= stock._id %>', '<%= meditem._id %>')">Delete</a></td>
+                </tr>
+           <% }) %>
+           <tr>
+            <td></td>
+            <td>TOTAL STOCK</td>
+            <td><%= meditem.totalStock %></td>
+           </tr>
+        </tbody>
+    </table>
+    
+    <form action="/current/<%= meditem._id %>/stock" method="POST" id="stock-form">
+        Lot No.: <input type="text" name="lotNo">
+        Expiration Date: <input type="month" name="expDate" value="<%= futureDate %>">
+        Units added to stock: <input type="text" name="stock" required>
+        <button type="submit">Add Stock</button>
+    </form>
+    
+    par: <%= meditem.parLevel %>
+    Notes: <%= meditem.notes %>
+    
+    
+     
+    
+        <a href="#" onclick="edit('<%= meditem._id %>')">Edit</a>
+        <a href="#" onclick="confirmDelete('<%= meditem._id %>')">Delete</a>
+</section>
 
-<form action="/current/<%= meditem._id %>/stock" method="POST">
-    Lot No.: <input type="text" name="lotNo">
-    Expiration Date: <input type="month" name="expDate" value="<%= futureDate %>">
-    Units added to stock: <input type="text" name="stock" required>
-    <button type="submit">Add Stock</button>
-</form>
 
-par: <%= meditem.parLevel %>
-Notes: <%= meditem.notes %>
-
-
- 
-
-    <a href="#" onclick="edit('<%= meditem._id %>')">Edit</a>
-    <a href="#" onclick="confirmDelete('<%= meditem._id %>')">Delete</a>
 
     <script>
         function edit(meditemId) {
@@ -96,3 +112,5 @@ Notes: <%= meditem.notes %>
         }
 
     </script>
+
+<%- include('../partials/footer') %>

@@ -33,3 +33,23 @@ button:hover {
     transform: translate(-47%, -55%);
     font-size: 40px;
 }
+
+.stock-btn {
+    height: 25px;
+    width: 25px;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.5);
+    background-color: var(--white);
+    font-size: 18px;
+    transition: all 0.2s ease;
+}
+
+.stock-btn:hover {
+    background-color: var(--starfill);
+}
+
+.stock-btn:active {
+    box-shadow: none;
+    background-color: var(--white);
+}
