@@ -1,6 +1,8 @@
 <section id="subheader">
     <div id="page-title-container">
-        <h1><%= title %></h1>
+        <h1>
+            <%= title %>
+        </h1>
     </div>
     <div id="btns-row-container">
         <div id="search-container">
@@ -16,48 +18,59 @@
             +
         </button>
         <button class="round-btn" id="deplete-btn-subheader">
-            
+
         </button>
     </div>
 </section>
 
 <script>
+    // Constants
     let searchIsOpen = false;
+    const subheader = document.getElementById('subheader');
     const searchInput = document.getElementById('search-input');
     const searchBtn = document.getElementById('search-container');
-    const mglass = document.getElementById('mglass'); 
+    const mglass = document.getElementById('mglass');
 
-    searchBtn.addEventListener('click', toggleSearch);
-
-    mglass.addEventListener('click', function(event) {
+    // Event listeners
+    mglass.addEventListener('click', function (event) {
+        event.stopPropagation();
         if (searchIsOpen) {
             searchInput.form.submit();
         } else {
             toggleSearch();
         }
+    });
+
+    searchBtn.addEventListener('click', function (event) {
+        event.stopPropagation();
+        toggleSearch();
+        
+    });
+
+    searchInput.addEventListener('click', function (event) {
         event.stopPropagation();
     });
 
-    searchInput.addEventListener('click', function(event) {
-        event.stopPropagation(); 
+    subheader.addEventListener('click', function (event) {
+        if (searchIsOpen) {
+            toggleSearch();
+        }
     });
 
+    // Functions
     function toggleSearch() {
         if (!searchIsOpen) {
-            searchBtn.style.width = '300px';
-            searchBtn.style.borderRadius = '10px';
-            searchBtn.style.backgroundColor = 'var(--accent)';
+            searchBtn.classList.add('search-open');
             searchInput.style.display = 'inline-block';
             searchInput.style.opacity = '1';
-            searchInput.focus(); 
+            searchInput.focus();
             searchIsOpen = true;
         } else {
-            searchBtn.style.width = '50px';
-            searchBtn.style.borderRadius = '50%';
-            searchBtn.style.backgroundColor = 'var(--white)';
+            searchBtn.classList.remove('search-open');
             searchInput.style.display = 'none';
             searchInput.style.opacity = '0';
             searchIsOpen = false;
         }
     }
+
 </script>

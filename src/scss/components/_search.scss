@@ -20,12 +20,17 @@
     box-shadow: none;
 }
 
+#search-container.search-open {
+    width: 300px;
+    border-radius: 10px;
+    background-color: var(--accent);
+}
+
 #search-input {
     display: none;
     opacity: 0;
     width: 250px;
     transform: translate(-20px, -3px);
-    z-index: 100;
     border: 1px solid var(--lightgrey);
     border-radius: 5px;
     padding: 5px;

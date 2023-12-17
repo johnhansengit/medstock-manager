@@ -29,6 +29,10 @@ tr:hover {
     background-color: var(--accent);
 }
 
+td a:hover { 
+    color: var(--white);
+}
+
 #current-stock-table tr td:nth-child(2),
 #current-stock-table td:nth-child(3),
 #current-stock-table th:nth-child(2),
