@@ -18,43 +18,49 @@
         <div id="units">1 unit = <%= meditem.perUnit %></div>
     </div>
     
-    <table id="overlay-table">
-        <thead>
-            <tr>
-                <th>Lot No.</th>
-                <th>Exp. Date</th>
-                <th>Current Stock</th>
-                <th>+/- Stock</th>
-                <th>Delete Row</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% meditem.inStock.forEach((stock) => { %>
+    <form action="/current/<%= meditem._id %>/stock" method="POST" id="stock-form"></form>
+
+        <table id="overlay-table">
+            <thead>
                 <tr>
-                    <td><%= stock.lotNo %></td>
-                    <td><%= new Date(stock.expDate).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) %></td>
-                    <td><%= stock.stock %></td>
-                    <td>
-                        <button onclick="addStock('<%= stock._id %>', '<%= meditem._id %>')" class="stock-btn">+</button>
-                        <button onclick="depleteStock('<%= stock._id %>', '<%= meditem._id %>')"class="stock-btn">-</button>
-                    </td>
-                    <td><a href="#" onclick="quickDelete('<%= stock._id %>', '<%= meditem._id %>')">Delete</a></td>
+                    <th>Lot No.</th>
+                    <th>Exp. Date</th>
+                    <th>Current Stock</th>
+                    <th>+/- Stock</th>
+                    <th>Delete Row</th>
                 </tr>
-           <% }) %>
-           <tr>
-            <td></td>
-            <td>TOTAL STOCK</td>
-            <td><%= meditem.totalStock %></td>
-           </tr>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <% meditem.inStock.forEach((stock) => { %>
+                    <tr>
+                        <td><%= stock.lotNo %></td>
+                        <td><%= new Date(stock.expDate).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) %></td>
+                        <td><%= stock.stock %></td>
+                        <td>
+                            <button onclick="addStock('<%= stock._id %>', '<%= meditem._id %>')" class="stock-btn">+</button>
+                            <button onclick="depleteStock('<%= stock._id %>', '<%= meditem._id %>')"class="stock-btn">-</button>
+                        </td>
+                        <td><a href="#" onclick="quickDelete('<%= stock._id %>', '<%= meditem._id %>')">Delete</a></td>
+                    </tr>
+            <% }) %>
+            <tr>
+                <td><input type="text" name="lotNo" placeholder="New lot no."></td>
+                <td><input type="month" name="expDate" value="<%= futureDate %>"></td>
+                <td><input type="text" name="stock" placeholder="New stock quant." required></td>
+                <td><button type="submit">Add Stock</button></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>TOTAL STOCK</td>
+                <td><%= meditem.totalStock %></td>
+            </tr>
+            </tbody>
+        </table>
     
-    <form action="/current/<%= meditem._id %>/stock" method="POST" id="stock-form">
-        Lot No.: <input type="text" name="lotNo">
-        Expiration Date: <input type="month" name="expDate" value="<%= futureDate %>">
-        Units added to stock: <input type="text" name="stock" required>
-        <button type="submit">Add Stock</button>
     </form>
+
+    
     
     par: <%= meditem.parLevel %>
     Notes: <%= meditem.notes %>
