@@ -1,7 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap");
 :root {
-  --light2: #bd83b8;
-  --white: rgb(250, 245, 245);
+  --main: rgb(17,178,219);
+  --darkmain: rgb(25,84,101);
+  --accent: rgb(243,200,88);
+  --starfill: rgb(243, 220, 88);
+  --alert: rgb(225,83,70);
+  --white: rgb(230, 250, 255);
+  --lightgrey: rgb(228,236,241);
+  --darkgrey: rgb(55,56,53);
+  --black: rgb(24,52,59);
+  --1: #ff6961;
+  --2: #f69552;
+  --3: #ffd347;
+  --4: #b2cc00;
+  --5: #4fd377;
+  --6: #1cc38c;
+  --7: #00bbd4;
+  --8: #448aff;
+  --9: #5a7ad3;
+  --10: #966fd6;
+  --11: #c173ff;
+  --12: #f984e5;
 }
 
 * {
@@ -9,19 +28,29 @@
 }
 
 body {
-  background-color: #fff3f4;
-  font-family: "M PLUS Rounded 1c", sans-serif;
+  background-color: var(--white);
   margin: 25px;
   padding: 0;
 }
 
+input:focus {
+  outline: 1px solid var(--main);
+}
+
+body {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  color: var(--black);
+}
+
 a {
+  color: var(--darkmain);
   text-decoration: none;
   transition: color 0.2s ease;
+  font-weight: 500;
 }
 
 a:hover {
-  color: #fff3f4;
+  color: var(--white);
 }
 
 .star-toggle {
@@ -52,13 +81,13 @@ button:hover {
   border: none;
   border-radius: 50%;
   box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.5);
-  background-color: rgb(250, 245, 245);
+  background-color: var(--white);
   font-size: 30px;
   transition: all 0.2s ease;
 }
 
 .round-btn:hover {
-  background-color: #bd83b8;
+  background-color: var(--accent);
 }
 
 .round-btn:active {
@@ -86,13 +115,13 @@ button:hover {
   border: none;
   border-radius: 50%;
   box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.5);
-  background-color: rgb(250, 245, 245);
+  background-color: var(--white);
   font-size: 30px;
   transition: all 0.2s ease;
 }
 
 #search-container:hover {
-  background-color: #bd83b8;
+  background-color: var(--accent);
   cursor: pointer;
 }
 
@@ -106,14 +135,14 @@ button:hover {
   width: 250px;
   transform: translate(-20px, -3px);
   z-index: 100;
-  border: 1px solid lightgrey;
+  border: 1px solid var(--lightgrey);
   border-radius: 5px;
   padding: 5px;
   transition: all 1s ease;
 }
 
 #mglass {
-  transform: rotate(-45deg) translate(-10px, -5px);
+  transform: rotate(-45deg) translate(-10px, -6px);
 }
 
 header {
@@ -124,7 +153,7 @@ header {
   width: 100%;
   height: 80px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
-  background-color: #86a8cf;
+  background-color: var(--main);
   padding: 25px;
   display: flex;
   justify-content: space-between;
@@ -142,7 +171,7 @@ header {
 #logo-container a {
   font-size: 40px;
   font-weight: 800;
-  color: #1b3358;
+  color: var(--darkmain);
 }
 
 #logo-container a img {
@@ -176,15 +205,17 @@ nav ul li a {
   padding: 10px;
   border-radius: 10px;
   transition: background-color 0.2s ease;
+  font-weight: 400;
 }
 
 nav ul li a:hover {
-  background-color: #bd83b8;
+  color: var(--darkmain);
+  background-color: var(--accent);
 }
 
 nav ul li a:active {
-  background-color: #fff3f4;
-  color: #473e66;
+  background-color: var(--white);
+  color: var(--darkmain);
 }
 
 #subheader {
@@ -200,7 +231,7 @@ nav ul li a:active {
 #page-title-container {
   font-size: 20px;
   font-weight: 500;
-  color: #473e66;
+  color: var(--darkmain);
 }
 
 #btns-row-container {
@@ -210,7 +241,7 @@ nav ul li a:active {
 }
 
 #btns-row-container button {
-  margin-left: 5px;
+  margin-left: 8px;
 }
 
 #stock-card-overlay {
@@ -223,7 +254,7 @@ nav ul li a:active {
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.5);
-  background-color: rgb(250, 245, 245);
+  background-color: var(--white);
   padding-bottom: 20px;
   display: flex;
   flex-direction: column;
@@ -233,25 +264,32 @@ nav ul li a:active {
 table {
   width: 100%;
   font-weight: 300;
-  background-color: rgb(250, 245, 245);
+  background-color: var(--white);
 }
 
 th,
 td {
-  border: 1px solid #473e66;
   vertical-align: middle;
   text-align: center;
   padding: 5px;
 }
 
 th {
-  background-color: #473e66;
-  color: rgb(250, 245, 245);
+  border: none;
+}
+
+td {
+  border: 1px solid var(--darkmain);
+}
+
+th {
+  background-color: var(--darkmain);
+  color: var(--white);
   border-radius: 5px 5px 0 0;
 }
 
 tr:hover {
-  background-color: #bd83b8;
+  background-color: var(--accent);
 }
 
 #current-stock-table tr td:nth-child(2),
@@ -272,11 +310,12 @@ footer {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas: ". copyright user-options";
   box-shadow: 0 -4px 8px 0 rgba(0, 0, 0, 0.5);
-  background-color: #86a8cf;
+  background-color: var(--main);
   padding: 15px;
   align-items: center;
   text-align: center;
   font-size: 11px;
+  color: var(--black);
 }
 
 #copyright {
@@ -291,5 +330,5 @@ footer {
 }
 
 #user-options a {
-  margin-left: 3vw;
+  margin-left: 2vw;
 }

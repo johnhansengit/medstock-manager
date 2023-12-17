@@ -11,7 +11,7 @@
 #page-title-container {
     font-size: 20px;
     font-weight: 500;
-    color: $dark2;
+    color: var(--darkmain);
 }
 
 #btns-row-container {
@@ -21,5 +21,5 @@
 }
 
 #btns-row-container button {
-    margin-left: 5px;
+    margin-left: 8px;
 }

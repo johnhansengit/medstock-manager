@@ -6,7 +6,7 @@ header {
     width: 100%;
     height: 80px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
-    background-color: $light1;
+    background-color: var(--main);
     padding: 25px;
     display: flex;
     justify-content: space-between;
@@ -24,7 +24,7 @@ header {
 #logo-container a {
     font-size: 40px;
     font-weight: 800;
-    color: $dark1;
+    color: var(--darkmain);
 }
 
 #logo-container a img {
@@ -58,13 +58,15 @@ nav ul li a {
     padding: 10px;
     border-radius: 10px;
     transition: background-color 0.2s ease;
+    font-weight: 400;
 }
 
 nav ul li a:hover {
-    background-color: $light2;
+    color: var(--darkmain);
+    background-color: var(--accent);
 }
 
 nav ul li a:active {
-    background-color: $off-white;
-    color: $dark2;
+    background-color: var(--white);
+    color: var(--darkmain);
 }

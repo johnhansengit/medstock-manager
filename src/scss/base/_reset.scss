@@ -3,17 +3,11 @@
   }
 
   body {
-    background-color: $off-white;
-    font-family: $main;
+    background-color: var(--white);
     margin: 25px;
     padding: 0;
 }
 
-a {
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-a:hover {
-  color: $off-white;
+input:focus {
+  outline: 1px solid var(--main);
 }

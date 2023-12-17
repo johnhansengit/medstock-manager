@@ -13,7 +13,8 @@ const depletions = [
     'Patient Use',
     'Expired',
     'Waste',
-    'Transfer Out'
+    'Transfer Out',
+    'Count Correction'
 ]
 
 module.exports = {

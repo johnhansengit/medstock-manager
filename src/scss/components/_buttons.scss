@@ -8,13 +8,13 @@ button:hover {
     border: none;
     border-radius: 50%;
     box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.5);
-    background-color: $white;
+    background-color: var(--white);
     font-size: 30px;
     transition: all 0.2s ease;
 }
 
 .round-btn:hover {
-    background-color: $light2;
+    background-color: var(--accent);
 }
 
 .round-btn:active {

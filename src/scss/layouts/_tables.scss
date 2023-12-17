@@ -1,26 +1,32 @@
 table {
     width: 100%;
-    // border-collapse: collapse;
     font-weight: 300;
-    background-color: $white;
+    background-color: var(--white);
 }
 
 th,
 td {
-    border: 1px solid $dark2;
     vertical-align: middle;
     text-align: center;
     padding: 5px;
 }
 
 th {
-    background-color: $dark2;
-    color: $white;
+    border: none;
+}
+
+td {
+    border: 1px solid var(--darkmain);
+}
+
+th {
+    background-color: var(--darkmain);
+    color: var(--white);
     border-radius: 5px 5px 0 0;
 }
 
 tr:hover {
-    background-color: $light2;
+    background-color: var(--accent);
 }
 
 #current-stock-table tr td:nth-child(2),

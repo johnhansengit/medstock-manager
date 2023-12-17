@@ -9,11 +9,12 @@ footer {
     grid-template-areas: 
         ". copyright user-options";
     box-shadow: 0 -4px 8px 0 rgba(0, 0, 0, 0.5);
-    background-color: $light1;
+    background-color: var(--main);
     padding: 15px;
     align-items: center;
     text-align: center;
     font-size: 11px;
+    color: var(--black);
   }
 
   #copyright {
@@ -28,5 +29,5 @@ footer {
 }
 
 #user-options a {
-    margin-left: 3vw;
+    margin-left: 2vw;
 }

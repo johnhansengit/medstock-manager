@@ -1,0 +1,15 @@
+body {
+    font-family: $main;
+    color: var(--black);
+}
+
+a {
+    color: var(--darkmain);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    font-weight: 500;
+}
+
+a:hover {
+    color: var(--white);
+}

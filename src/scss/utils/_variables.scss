@@ -1,32 +1,30 @@
-// Color Palette
-$off-black: #06142e;
-$dark1: #1b3358;
-$light1: #86a8cf;
-$dark2: #473e66;
-$light2: #bd83b8;
-$off-white: #fff3f4;
-$white: rgb(250, 245, 245);
-$alert: #f1916D;
-
-$analgesics: #e76f51;
-$corticosteroids: #264653;
-$antihistimines: #f4a261;
-$antiobiotics: #e9c46a;
-$vaccines: #2a9d8f;
-$iv-fluids: #b8d8e3;
-$lab: #287271;
-$consumables: #9db0ce;
-
-$dark-fade: #ff8473;
-$light-fade: #fff9d2;
-
-
-// JavaScript-accessible colors
-:root {
-    --light2: #bd83b8;
-    --white: rgb(250, 245, 245);
-  }
-
 // Font Families
 $main: 'M PLUS Rounded 1c', sans-serif;
 
+// JavaScript-accessible color palette
+:root {
+    // Theme colors
+    --main: rgb(17,178,219);
+    --darkmain: rgb(25,84,101);
+    --accent: rgb(243,200,88);
+    --starfill: rgb(243, 220, 88);
+    --alert: rgb(225,83,70);
+    --white: rgb(230, 250, 255);
+    --lightgrey: rgb(228,236,241);
+    --darkgrey: rgb(55,56,53);
+    --black: rgb(24,52,59);
+
+    // Meditem Family colors
+    --1: #ff6961;
+    --2: #f69552;
+    --3: #ffd347;
+    --4: #b2cc00;
+    --5: #4fd377;
+    --6: #1cc38c;
+    --7: #00bbd4;
+    --8: #448aff;
+    --9: #5a7ad3;
+    --10: #966fd6;
+    --11: #c173ff;
+    --12: #f984e5;
+  }

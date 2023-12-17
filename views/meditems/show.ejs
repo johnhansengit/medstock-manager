@@ -49,9 +49,14 @@ Notes: <%= meditem.notes %>
 
  
 
+    <a href="#" onclick="edit('<%= meditem._id %>')">Edit</a>
     <a href="#" onclick="confirmDelete('<%= meditem._id %>')">Delete</a>
 
     <script>
+        function edit(meditemId) {
+            window.location.href = `/current/${meditemId}/edit`;
+        }
+
         function confirmDelete(meditemId) {
             if (confirm('Are you sure you want to delete this item?')) {
                 fetch(`/current/${meditemId}`, { method: 'DELETE' })
