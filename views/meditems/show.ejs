@@ -1,24 +1,32 @@
 <%- include('../partials/header') %>
 
-<section id="stock-card-overlay">
+    <section id="stock-card-overlay">
 
-    <div id="overlay-top-container">
-        <div><%= meditem.family %></div>
-        <img src="/images/star-outline.svg" alt="" class="star-toggle" id="star-overlay">
-    </div>
-
-    <div id="overlay-info-container">
-        <div id="name-container">
-            <div id="brand-name"><%= meditem.brandName %></div>
-            <div id="generic-name">(<%= meditem.genericName %>)</div>
+        <div id="overlay-top-container">
+            <div>
+                <%= meditem.family %>
+            </div>
+            <img src="/images/star-outline.svg" alt="" class="star-toggle" id="star-overlay">
         </div>
-        
-        <div id="dose-form"><%= meditem.dose %> <%= meditem.form %></div>
-        
-        <div id="units">1 unit = <%= meditem.perUnit %></div>
-    </div>
-    
-    <form action="/current/<%= meditem._id %>/stock" method="POST" id="stock-form"></form>
+
+        <div id="overlay-info-container">
+            <div id="name-container">
+                <div id="brand-name">
+                    <%= meditem.brandName %>
+                </div>
+                <div id="generic-name">(<%= meditem.genericName %>)</div>
+            </div>
+
+            <div id="dose-form">
+                <%= meditem.dose %>
+                    <%= meditem.form %>
+            </div>
+
+            <div id="units">1 unit = <%= meditem.perUnit %><br>
+                    par level: <%= meditem.parLevel %> units</div>
+        </div>
+
+        <form action="/current/<%= meditem._id %>/stock" method="POST" id="stock-form"></form>
 
         <table id="overlay-table">
             <thead>
@@ -31,46 +39,60 @@
                 </tr>
             </thead>
             <tbody>
-                <% meditem.inStock.forEach((stock) => { %>
+                <% meditem.inStock.forEach((stock)=> { %>
                     <tr>
-                        <td><%= stock.lotNo %></td>
-                        <td><%= new Date(stock.expDate).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) %></td>
-                        <td><%= stock.stock %></td>
                         <td>
-                            <button onclick="addStock('<%= stock._id %>', '<%= meditem._id %>')" class="stock-btn">+</button>
-                            <button onclick="depleteStock('<%= stock._id %>', '<%= meditem._id %>')"class="stock-btn">-</button>
+                            <%= stock.lotNo %>
+                        </td>
+                        <td>
+                            <%= new Date(stock.expDate).toLocaleDateString('en-US', { month: 'short' , year: 'numeric'
+                                }) %>
+                        </td>
+                        <td>
+                            <%= stock.stock %>
+                        </td>
+                        <td>
+                            <button onclick="addStock('<%= stock._id %>', '<%= meditem._id %>')"
+                                class="stock-btn">+</button>
+                            <button onclick="depleteStock('<%= stock._id %>', '<%= meditem._id %>')"
+                                class="stock-btn">-</button>
                         </td>
                         <td><a href="#" onclick="quickDelete('<%= stock._id %>', '<%= meditem._id %>')">Delete</a></td>
                     </tr>
-            <% }) %>
-            <tr>
-                <td><input type="text" name="lotNo" placeholder="New lot no."></td>
-                <td><input type="month" name="expDate" value="<%= futureDate %>"></td>
-                <td><input type="text" name="stock" placeholder="New stock quant." required></td>
-                <td><button type="submit">Add Stock</button></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>TOTAL STOCK</td>
-                <td><%= meditem.totalStock %></td>
-            </tr>
+                    <% }) %>
+                        <tr>
+                            <td><input type="text" name="lotNo" placeholder="New lot no."></td>
+                            <td><input type="month" name="expDate" value="<%= futureDate %>"></td>
+                            <td><input type="text" name="stock" placeholder="New stock quant." required></td>
+                            <td><button type="submit" id="add-stock-item-btn">Add New Stock</button></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>TOTAL STOCK</td>
+                            <td>
+                                <%= meditem.totalStock %>
+                            </td>
+                        </tr>
             </tbody>
         </table>
-    
-    </form>
 
-    
-    
-    par: <%= meditem.parLevel %>
-    Notes: <%= meditem.notes %>
-    
-    
-     
-    
-        <a href="#" onclick="edit('<%= meditem._id %>')">Edit</a>
-        <a href="#" onclick="confirmDelete('<%= meditem._id %>')">Delete</a>
-</section>
+        </form>
+
+        <div id="notes-container">
+            <p>Notes:</p>
+            <div id="notes">
+                <%= meditem.notes %>
+            </div>
+        </div>
+
+        <div id="edit-delete">
+            <a href="#" onclick="edit('<%= meditem._id %>')">Edit Item</a>
+            <a href="#" onclick="confirmDelete('<%= meditem._id %>')">Delete Item</a>
+        </div>
+
+
+    </section>
 
 
 
@@ -104,9 +126,9 @@
                         alert('An error occurred while deleting the stock.');
                     }
                 })
-            .catch(err => {
-                console.error('Error:', err);
-            });
+                .catch(err => {
+                    console.error('Error:', err);
+                });
         }
 
         function addStock(stockId, meditemId) {
@@ -119,4 +141,4 @@
 
     </script>
 
-<%- include('../partials/footer') %>
+    <%- include('../partials/footer') %>

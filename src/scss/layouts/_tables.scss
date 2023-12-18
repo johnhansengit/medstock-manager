@@ -33,7 +33,7 @@ td a:hover {
     color: var(--white);
 }
 
-// STOCK TABLE
+// CURRENT STOCK TABLE
 
 #current-stock-table tr td:nth-child(2),
 #current-stock-table td:nth-child(3),
@@ -83,4 +83,26 @@ td a:hover {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+#overlay-table tr:nth-last-child(2) {
+    background-color: white;
+}
+
+#overlay-table tr:nth-last-child(2) td:nth-child(5) {
+    background-color: var(--white);
+}
+
+#overlay-table tr:nth-last-child(2) td:nth-child(5) {
+    border: none;
+}
+
+#overlay-table tr:last-child td:nth-child(3) {
+    background-color: var(--darkmain);
+    color: var(--white);
+}
+
+#overlay-table td input {
+    border: none;
+    text-align: center;
 }
