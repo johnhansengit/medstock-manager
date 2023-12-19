@@ -1,12 +1,15 @@
 <%- include('../partials/header') %>
 
-    <section id="stock-card-overlay">
+    <section id="overlay">
 
         <div id="overlay-top-container">
-            <div>
+            <img src="/images/star-outline.svg" alt="" class="star-toggle" id="star-overlay">
+            <div id="family-container">
                 <%= meditem.family %>
             </div>
-            <img src="/images/star-outline.svg" alt="" class="star-toggle" id="star-overlay">
+            <div id="close-container">
+                <p>Close [X]</p>
+            </div>
         </div>
 
         <div id="overlay-info-container">
@@ -63,7 +66,7 @@
                         <tr>
                             <td><input type="text" name="lotNo" placeholder="New lot no."></td>
                             <td><input type="month" name="expDate" value="<%= futureDate %>"></td>
-                            <td><input type="text" name="stock" placeholder="New stock quant." required></td>
+                            <td><input type="text" name="stock" placeholder="New stock quantity" required></td>
                             <td><button type="submit" id="add-stock-item-btn">Add New Stock</button></td>
                             <td></td>
                         </tr>

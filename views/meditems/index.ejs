@@ -5,9 +5,8 @@
     <thead>
         <tr>
             <th></th>
-            <th>Brand Name</th>
             <th>Generic Name</th>
-            <th>Dose</th>
+            <th>Dose/Form</th>
             <th>Family <img src="/images/filter.svg" alt="" id="filter-icon"></th>
             <th>Nearest Exp.</th>
             <th>Par Level</th>
@@ -18,9 +17,8 @@
         <% meditems.forEach((item) => { %>
             <tr>
                 <td><img src="/images/star-outline.svg" alt="" class="star-toggle" id="star-table"></td>
-                <td><a href="/current/<%= item.id %>"><%= item.brandName %></a></td>
-                <td><%= item.genericName %></td>
-                <td><%= item.dose %></td>
+                <td><a href="/current/<%= item.id %>"><%= item.genericName %></a></td>
+                <td><%= item.dose %> <%= item.form %></td>
                 <td><%= item.family %></td>
                 <td><%= new Date(item.firstExp).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) %></td>
                 <td><%= item.parLevel %></td>

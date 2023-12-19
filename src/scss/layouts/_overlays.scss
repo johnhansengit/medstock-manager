@@ -1,4 +1,4 @@
-#stock-card-overlay {
+#overlay {
     position: absolute;
     top: 50%;
     right: 50%;
@@ -17,30 +17,42 @@
     align-items: center;
 }
 
+// STOCK CARD OVERLAY
+
 #overlay-top-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
-        ". family star";
+        "star family close";
     align-items: center;
     background-color: var(--1);
     width: 100%;
-    padding-right: 5%
+    padding: 0 5%
 }
 
-#overlay-top-container div {
+#family-container {
     grid-area: family;
     margin: 10px;
     justify-self: center;
     font-size: 20px;
     font-weight: 600;
     text-transform: uppercase;
-    color: var(--darkmain);
+    color: var(--white);
+}
+
+#close-container {
+    grid-area: close;
+    justify-self: end;
+    color: var(--white);
+}
+
+#close-container > p:hover {
+    cursor: pointer;
 }
 
 #overlay-top-container img {
     grid-area: star;
-    justify-self: end;
+    justify-self: start;
 }
 
 #overlay-info-container {
@@ -103,6 +115,7 @@
     flex-direction: row;
     justify-content: flex-end;
     gap: 20px;
+    font-size: 14px;
 }
 
 #edit-delete a:hover {
