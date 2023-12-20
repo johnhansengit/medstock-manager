@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap");
 :root {
+  --logocolor: rgb(21, 76, 93);
+  --lightmain: rgb(108, 201, 225);
   --main: rgb(17,178,219);
   --darkmain: rgb(25,84,101);
   --accent: rgb(243,200,88);
@@ -556,4 +558,78 @@ footer {
 
 #user-options a {
   margin-left: 2vw;
+}
+
+#landing-body {
+  height: 100vh;
+  margin: 0;
+  background-image: linear-gradient(to bottom, var(--lightmain), var(--main));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#landing-main {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas: "logo-area login-area";
+  align-items: center;
+}
+
+#landing-logo-area {
+  grid-area: logo-area;
+  display: flex;
+  justify-content: flex-start;
+  gap: 1vw;
+}
+
+#landing-logo-container {
+  align-self: center;
+  justify-content: center;
+}
+
+#landing-logo {
+  height: 33vmin;
+}
+
+#landing-title {
+  width: 50%;
+  align-self: center;
+  font-size: 8vmin;
+  font-weight: 900;
+  color: var(--logocolor);
+}
+
+#landing-login-area {
+  grid-area: login-area;
+  justify-self: center;
+  text-align: center;
+}
+
+#login-btn {
+  width: 16vw;
+  background-color: var(--darkmain);
+  border: none;
+  border-radius: 2vmin;
+  padding: 4vmin;
+  color: var(--white);
+  font-size: 4vmin;
+  font-weight: 900;
+  transition: all 0.2s ease;
+}
+
+#login-btn:hover {
+  background-image: none;
+  background-color: var(--accent);
+  color: var(--darkmain);
+}
+
+#login-btn:active {
+  background-color: var(--white);
+  color: var(--darkmain);
+}
+
+#landing-footer {
+  box-shadow: none;
+  background-color: transparent;
 }

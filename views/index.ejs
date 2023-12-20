@@ -1,9 +1,45 @@
-<%- include('./partials/header') %>
+<!DOCTYPE html>
+<html>
 
-  <h1>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
     <%= title %>
-  </h1>
-  <p>Welcome to <%= title %>
-  </p>
+  </title>
+  <link rel=“stylesheet” href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel='stylesheet' href='/stylesheets/main.css' />
+</head>
 
-  <%- include('./partials/footer') %>
+<body id="landing-body">
+
+  <main id="landing-main">
+
+    <section id="landing-logo-area">
+      <div id="landing-logo-container">
+        <img id="landing-logo" src="/images/logo.svg" alt="MedStock Manager Logo">
+      </div>
+
+      <div id="landing-title">
+        <%= title %>
+      </div>
+    </section>
+
+    <section id="landing-login-area">
+      <button id="login-btn">Log In</button>
+      <p>About</p>
+    </section>
+
+  </main>
+
+
+  <footer id="landing-footer">
+    <div id="copyright">
+      a <a href="https://johnhansen.io/" alt="johnhansen.io" target="_blank">John Hansen</a> creation © <%= new
+        Date().getFullYear() %>
+    </div>
+  </footer>
+
+</body>
+
+</html>
