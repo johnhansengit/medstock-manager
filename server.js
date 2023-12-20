@@ -11,7 +11,6 @@ require('./config/database');
 require('./config/passport');
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
 const meditemsRouter = require('./routes/meditems');
 const stockRouter = require('./routes/stock');
 const inoutsRouter = require('./routes/inouts');
@@ -41,7 +40,6 @@ app.use(function (req, res, next) {
 app.use(methodOverride('_method'));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/current', meditemsRouter);
 app.use('/', stockRouter);
 app.use('/', inoutsRouter);

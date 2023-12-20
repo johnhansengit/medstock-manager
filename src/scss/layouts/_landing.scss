@@ -41,12 +41,14 @@
 
 #landing-login-area {
     grid-area: login-area;
-    justify-self: center;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // text-align: center;
 }
 
 #login-btn {
-    width: 16vw;
+    width: 32vmin;
     background-color: var(--darkmain);
     border: none;
     border-radius: 2vmin;
@@ -55,6 +57,7 @@
     font-size: 4vmin;
     font-weight: 900;
     transition: all 0.2s ease;
+    margin: 7vh 0 1vh;
 }
 
 #login-btn:hover {
