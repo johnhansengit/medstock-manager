@@ -36,4 +36,9 @@ router.get('/logout', function(req, res){
   });
 });
 
+// OAuth not on approved user list route
+router.get('/access-denied', function(req, res){
+  res.render('access-denied', { title: 'Access Denied' });
+})
+
 module.exports = router;

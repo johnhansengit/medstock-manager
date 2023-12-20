@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%= title %>
+  </title>
+  <link rel=“stylesheet” href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel='stylesheet' href='/stylesheets/main.css' />
+</head>
+
+<body id="noaccess-body">
+    <main id="noaccess-main">
+
+        <div id="message-container">
+            <h1>Access Denied</h1>
+            <p>
+                Sorry, you are not on the approved list of users.
+            </p>
+            <p>
+                To be added to this list, contact the lead nurse for the clinic.
+            </p>
+        </div>
+    
+        <div id="btn-container">
+            <a href="/"><button class="noaccess-btn">Home</button></a>
+            <a href="/auth/google"><button class="noaccess-btn">Try Again</button></a>
+        </div>
+    </main>
+</body>
+
+<footer id="noaccess-footer">
+    <div id="copyright">
+      a <a href="https://johnhansen.io/" alt="johnhansen.io" target="_blank">John Hansen</a> creation © <%= new
+        Date().getFullYear() %>
+    </div>
+  </footer>
+
+</body>
+
+</html>
