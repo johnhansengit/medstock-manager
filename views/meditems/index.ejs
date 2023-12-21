@@ -16,9 +16,9 @@
     </thead>
     <tbody>
         <% meditems.forEach((item) => { %>
-            <tr>
+            <tr data-href="/current/<%= item.id %>">
                 <td><img src="/images/star-outline.svg" alt="" class="star-toggle" id="star-table"></td>
-                <td><a href="/current/<%= item.id %>"><%= item.genericName %></a></td>
+                <td><%= item.genericName %></td>
                 <td><%= item.dose %> <%= item.form %></td>
                 <td><%= item.family %></td>
                 <td><%= new Date(item.firstExp).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' }) %></td>
@@ -34,5 +34,18 @@
 Sorry, there don't appear to be any items in the system. Click the (+) button at top-right to add some.
 
 <% } %>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const rows = document.querySelectorAll('tr[data-href]');
+
+        rows.forEach(function(row) {
+            row.addEventListener('click', function() {
+                window.location.href = this.dataset.href;
+            });
+        });
+    });
+</script>
+
 
 <%- include('../partials/footer') %>

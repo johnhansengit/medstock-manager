@@ -43,6 +43,10 @@ td a:hover {
     padding-left: 10px;
 }
 
+#current-stock-table tbody tr:hover {
+    cursor: pointer;
+}
+
 #filter-icon {
     margin: 0px 5px;
     transform: translate(0%, 15%);
