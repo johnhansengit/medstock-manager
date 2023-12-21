@@ -47,8 +47,7 @@ const show = async (req, res) => {
     const day = ('0' + sixMonthsLater.getDate()).slice(-2); 
     const futureDate = `${year}-${month}-${day}`;     
 
-    res.render('meditems/show', {
-        title: 'Item Detail',
+    res.render('overlays/item', {
         meditem,
         futureDate
     });

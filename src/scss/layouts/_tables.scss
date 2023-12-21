@@ -60,6 +60,12 @@ td a:hover {
 
 // OVERLAY TABLE
 
+#stock-form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 #overlay-table {
     width: 90%;
 }
@@ -93,10 +99,12 @@ td a:hover {
     background-color: white;
 }
 
-#overlay-table tr:nth-last-child(2) td:nth-child(5) {
+#overlay-table tr:nth-last-child(2) td:nth-child(4) {
     background-color: var(--white);
+    text-align: left;
 }
 
+#overlay-table tr:nth-last-child(2) td:nth-child(4),
 #overlay-table tr:nth-last-child(2) td:nth-child(5) {
     border: none;
 }

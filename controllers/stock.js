@@ -10,7 +10,7 @@ const create = async (req, res) => {
     } catch (err) {
         console.log(err);
     }
-    res.redirect(`/current/${meditem._id}`);
+    res.redirect(`/current/`);
 }
 
 const deleteStock = async (req, res) => {

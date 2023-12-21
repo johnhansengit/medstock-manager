@@ -141,7 +141,7 @@ button:hover {
 
 #add-stock-item-btn {
   border: none;
-  border-radius: 10px;
+  border-radius: 0;
   box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.5);
   background-color: var(--white);
   padding: 10px;
@@ -157,6 +157,18 @@ button:hover {
 
 #add-stock-item-btn:active {
   box-shadow: none;
+}
+
+#quick-delete-btn {
+  border: none;
+  background-color: transparent;
+  color: var(--darkmain);
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+#quick-delete-btn:hover {
+  color: var(--white);
 }
 
 #search-container {
@@ -302,6 +314,8 @@ nav ul li a:active {
 }
 
 #overlay {
+  display: none;
+  opacity: 0;
   position: absolute;
   top: 50%;
   right: 50%;
@@ -315,9 +329,9 @@ nav ul li a:active {
   box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.5);
   background-color: var(--white);
   padding-bottom: 20px;
-  display: flex;
   flex-direction: column;
   align-items: center;
+  transition: opacity 0.3s ease-in-out;
 }
 
 #overlay-top-container {
@@ -346,7 +360,7 @@ nav ul li a:active {
   color: var(--white);
 }
 
-#close-container > p:hover {
+#close-text:hover {
   cursor: pointer;
 }
 
@@ -474,6 +488,12 @@ td a:hover {
   cursor: pointer;
 }
 
+#stock-form {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 #overlay-table {
   width: 90%;
 }
@@ -507,10 +527,12 @@ td a:hover {
   background-color: white;
 }
 
-#overlay-table tr:nth-last-child(2) td:nth-child(5) {
+#overlay-table tr:nth-last-child(2) td:nth-child(4) {
   background-color: var(--white);
+  text-align: left;
 }
 
+#overlay-table tr:nth-last-child(2) td:nth-child(4),
 #overlay-table tr:nth-last-child(2) td:nth-child(5) {
   border: none;
 }
