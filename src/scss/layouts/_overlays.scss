@@ -120,3 +120,103 @@
 
 // ADD MEDITEM OVERLAY
 
+#form-container {
+    margin: 3vh 0;
+    width: 66%;
+}
+
+#add-meditem-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#add-meditem-form div {
+    margin: 0.75vh;
+}
+
+#form-quickref-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+#form-quickref-container input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    background: url('/images/star-outline.svg') no-repeat center center;
+    width: 24px; 
+    height: 24px; 
+}
+
+#form-quickref-container input[type="checkbox"]:checked {
+    background: url('/images/star-filled.svg') no-repeat center center;
+    width: 24px; 
+    height: 24px; 
+}
+
+#form-namefamily-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1vw;
+}
+
+#form-namefamily-container input,
+#form-namefamily-container select {
+    font-size: 3vmin;
+    height: 4.75vmin;
+}
+
+#form-namefamily-container input {
+    flex: 2;
+}
+
+#form-namefamily-container select {
+    flex: 1;
+}
+
+#form-doseform-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+}
+
+#form-doseform-container input:first-child {
+    flex: 1; 
+}
+
+#form-doseform-container input:last-child {
+    flex: 2; 
+}
+
+#form-unit-container {
+    display: flex;
+    flex-direction: row;
+}
+
+#form-unit-container div {
+    flex: 1;
+}
+
+#form-unit-container div input {
+    width: 60%;
+}
+
+#form-notes-container {
+    display: flex;
+    flex-direction: row;
+}
+
+#form-notes-container textarea {
+    flex: 1;
+    font-family: $main;
+}
+
+#form-submitbtn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}

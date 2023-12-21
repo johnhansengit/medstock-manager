@@ -1,25 +1,61 @@
+<%- include('../partials/header') %>
 
-    <form action="/current" method="POST">
-        <img src="/images/star-outline.svg" alt="" class="star-toggle" id="star">
-        <input type="hidden" id="quickref" name="quickref" value="false">
-        <input type="text" name="genericName" placeholder="Generic Name" required>
-        <select name="family" required>
-            <option value="" disabled selected hidden>Item Family</option>
-            <% families.forEach((family)=> { %>
-                <option value="<%= family %>">
-                    <%= family %>
-                </option>
-                <% }); %>
-        </select>
-        <input type="text" name="dose" placeholder="Dose (e.g., 200mg)">
-        <input type="text" name="form" placeholder="Formulation (tab, cap, cream, etc.)">
-        1 unit = <input type="text" name="perUnit" placeholder="e.g., 1 tablet">
-        <input type="number" name="parLevel" placeholder="min. no. of units">
-        <textarea name="notes" rows="10" cols="50">Notes...</textarea>
-        <button type="submit">Add Item</button>
+<section id="overlay" style="display: flex; opacity: 1;">
+
+<div id="overlay-top-container">
+    <div id="family-container">
+        Add Item
+    </div>
+    <div id="close-container">
+        <p id="close-text">Cancel [X]</p>
+    </div>
+</div>
+
+<div id="form-container">
+
+    <form action="/current" method="POST" id="add-meditem-form">
+        <div id="form-quickref-container">
+            <input type="checkbox" id="quickref" name="quickref" value="false"> <label for="quickref">Quick Reference</label>
+        </div>
+
+        <div id="form-namefamily-container">
+            <input type="text" name="genericName" placeholder="Generic Name" required>
+            <select name="family" required>
+                <option value="" disabled selected hidden>Item Family</option>
+                <% families.forEach((family)=> { %>
+                    <option value="<%= family %>">
+                        <%= family %>
+                    </option>
+                    <% }); %>
+            </select>
+        </div>
+
+        <div id="form-doseform-container">
+            <input type="text" name="dose" placeholder="Dose (e.g., 200mg)">
+            <input type="text" name="form" placeholder="Formulation (tab, cap, cream, etc.)">
+        </div>
+
+        <div id="form-unit-container">
+            <div id="form-units"><label>1 unit = </label><input type="text" name="perUnit" placeholder="e.g., 1 tablet"></div>
+            <div id="form-par"><label>par level: </label><input type="number" name="parLevel" placeholder="min. no. of units"></div>
+        </div>
+
+        <div id="form-notes-container">
+            <textarea name="notes" rows="10" cols="50">Notes...</textarea>
+        </div>
+
+        <div id="form-submitbtn-container">
+            <button type="submit" id="form-submit-btn">Add Item</button>
+        </div>
+
     </form>
+</div>
 
-    <script>
+</section> 
+
+<%- include('../partials/footer') %>
+
+    <!-- <script>
 
         document.getElementById('star').addEventListener('click', function () {
                 let isFilled = this.src.includes('star-filled.svg');
@@ -30,4 +66,4 @@
 
 
 
-    </script>
+    </script> -->

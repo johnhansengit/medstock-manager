@@ -47,32 +47,6 @@
     // text-align: center;
 }
 
-#login-btn {
-    width: 32vmin;
-    background-color: var(--darkmain);
-    border: none;
-    border-radius: 2vmin;
-    padding: 4vmin;
-    color: var(--white);
-    font-size: 4vmin;
-    font-weight: 900;
-    transition: all 0.2s ease;
-    margin: 7vh 0 1vh;
-}
-
-#login-btn:hover {
-    background-image: none;
-    background-color: var(--accent);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
-    color: var(--darkmain);
-}
-
-#login-btn:active{
-    background-color: var(--white);
-    box-shadow: none;
-    color: var(--darkmain);
-}
-
 #landing-footer {
     box-shadow: none;
     background-color: transparent;
