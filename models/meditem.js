@@ -23,11 +23,10 @@ const stockSchema = new Schema({
 });
 
 const meditemSchema = new Schema({
-    brandName: {
+    genericName: {
         type: String,
         required: true
     },
-    genericName: String,
     dose: String,
     form: String,
     family: {

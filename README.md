@@ -46,4 +46,4 @@ Features include stock item search and filter, automatic logging of stock ins an
 - Fonts: [Google Fonts](fonts.google.com)
 - Star icon: [IconPacks](https://iconpacks.net/?utm_source=link-attribution&utm_content=7203)
 - Filter icon: [SVGRepo](https://www.svgrepo.com/)
-- API: [DrugBank](https://docs.drugbank.com/v1/#introduction)
+- API: [OpenFDA](https://open.fda.gov/)

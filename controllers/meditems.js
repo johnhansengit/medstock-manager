@@ -41,10 +41,11 @@ const show = async (req, res) => {
     const meditem = await Meditem.findById(req.params.id);
 
     const today = new Date();
-    const sixMonthsLater = new Date(today.getFullYear(), today.getMonth() + 6, 1);
+    const sixMonthsLater = new Date(today.getFullYear(), today.getMonth() + 6, 0);
     const month = ('0' + (sixMonthsLater.getMonth() + 1)).slice(-2); 
     const year = sixMonthsLater.getFullYear();
-    const futureDate = `${year}-${month}`;
+    const day = ('0' + sixMonthsLater.getDate()).slice(-2); 
+    const futureDate = `${year}-${month}-${day}`;     
 
     res.render('meditems/show', {
         title: 'Item Detail',

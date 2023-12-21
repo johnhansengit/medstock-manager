@@ -79,7 +79,7 @@ td a:hover {
     background-color: transparent;
 }
 
-#overlay-table td:nth-child(4) {
+#overlay-table tr:not(:nth-last-child(2)) td:nth-child(4) {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -105,4 +105,10 @@ td a:hover {
 #overlay-table td input {
     border: none;
     text-align: center;
+}
+
+#nothing-in-stock {
+    font-weight: 600;
+    background-color: var(--alert);
+    color: var(--white);
 }

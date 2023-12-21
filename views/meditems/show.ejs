@@ -8,16 +8,13 @@
                 <%= meditem.family %>
             </div>
             <div id="close-container">
-                <p>Close [X]</p>
+                <p>Cancel [X]</p>
             </div>
         </div>
 
         <div id="overlay-info-container">
             <div id="name-container">
-                <div id="brand-name">
-                    <%= meditem.brandName %>
-                </div>
-                <div id="generic-name">(<%= meditem.genericName %>)</div>
+                <div id="generic-name"><%= meditem.genericName %></div>
             </div>
 
             <div id="dose-form">
@@ -42,13 +39,14 @@
                 </tr>
             </thead>
             <tbody>
-                <% meditem.inStock.forEach((stock)=> { %>
+                <% if(meditem.inStock.length > 0) { %>
+                    <% meditem.inStock.forEach((stock)=> { %>
                     <tr>
                         <td>
                             <%= stock.lotNo %>
                         </td>
                         <td>
-                            <%= new Date(stock.expDate).toLocaleDateString('en-US', { month: 'short' , year: 'numeric'
+                            <%= new Date(stock.expDate).toLocaleDateString('en-US', { day: 'numeric', month: 'short' , year: 'numeric'
                                 }) %>
                         </td>
                         <td>
@@ -63,12 +61,16 @@
                         <td><a href="#" onclick="quickDelete('<%= stock._id %>', '<%= meditem._id %>')">Delete</a></td>
                     </tr>
                     <% }) %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="5" id="nothing-in-stock">Nothing in stock. Add stock below.</td>
+                    </tr>
+                <% } %>
                         <tr>
                             <td><input type="text" name="lotNo" placeholder="New lot no."></td>
-                            <td><input type="month" name="expDate" value="<%= futureDate %>"></td>
+                            <td><input type="date" name="expDate" value="<%= futureDate %>"></td>
                             <td><input type="text" name="stock" placeholder="New stock quantity" required></td>
-                            <td><button type="submit" id="add-stock-item-btn">Add New Stock</button></td>
-                            <td></td>
+                            <td colspan="2"><button type="submit" id="add-stock-item-btn">Add New Stock</button></td>
                         </tr>
                         <tr>
                             <td></td>

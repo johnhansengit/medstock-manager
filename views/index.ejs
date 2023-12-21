@@ -26,8 +26,12 @@
     </section>
 
     <section id="landing-login-area">
-      <a href="/current"><button id="login-btn">Log In</button></a>
-      <a href="">Sign-Up</a>
+      <% if(user) { %>
+        <a href="/current"><button id="login-btn">Go to Stock</button></a>
+      <% } else { %>
+        <a href="/current"><button id="login-btn">Log In</button></a>
+        <% } %>
+      <a href="">Sign Up</a>
     </section>
 
   </main>

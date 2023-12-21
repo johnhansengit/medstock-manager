@@ -1,6 +1,7 @@
 <%- include('../partials/header') %>
 <%- include('../partials/subheader') %>
 
+<% if (meditems.length > 0) { %>
 <table id="current-stock-table">
     <thead>
         <tr>
@@ -20,12 +21,18 @@
                 <td><a href="/current/<%= item.id %>"><%= item.genericName %></a></td>
                 <td><%= item.dose %> <%= item.form %></td>
                 <td><%= item.family %></td>
-                <td><%= new Date(item.firstExp).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) %></td>
+                <td><%= new Date(item.firstExp).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' }) %></td>
                 <td><%= item.parLevel %></td>
                 <td><%= item.totalStock %></td>
             </tr>
        <% }) %>
     </tbody>
 </table>
+
+<% } else { %>
+
+Sorry, there don't appear to be any items in the system. Click the (+) button at top-right to add some.
+
+<% } %>
 
 <%- include('../partials/footer') %>

@@ -14,7 +14,8 @@ const depletions = [
     'Expired',
     'Waste',
     'Transfer Out',
-    'Count Correction'
+    'Count Correction',
+    'Other - See Note'
 ]
 
 module.exports = {
