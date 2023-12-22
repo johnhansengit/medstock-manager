@@ -1,5 +1,58 @@
 <%- include('../partials/header') %>
 <%- include('../partials/subheader') %>
 
+<% if (inouts.length > 0) { %>
+    <table id="current-stock-table">
+        <thead>
+            <tr>
+                <th>Date/Time</th>
+                <th>User</th>
+                <th>Generic Name</th>
+                <th>Dose/Form</th>
+                <th>In</th>
+                <th>Out</th>
+                <th>Reason</th>
+                <th>Updated Stock</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% inouts.forEach((inout) => { 
+                let displayDate = inout.dateTime.toISOString().slice(0,10);
+                let displayTime = inout.dateTime.toString().slice(16,21);
+                let displayDateTime = `${displayDate} @ ${displayTime}`;
+                %>
+                <tr>
+                    <td><%= displayDateTime %></td>
+                    <td><%= inout.user.name %></td>
+                    <td><%= inout.meditem.genericName %></td>
+                    <td><%= inout.meditem.dose %> <%= inout.meditem.form %></td>
+                    <td><% if (inout.addition) { %>
+                        <%= inout.inout %>
+                        <% } %>
+                    </td>
+                    <td><% if (inout.depletion) { %>
+                        <%= inout.inout %>
+                        <% } %>
+                    </td>
+                    <td><% if (inout.depletion) { %>
+                        <%= inout.depletion %>
+                        <% } %>
+                        <% if (inout.addition) { %>
+                            <%= inout.addition %>
+                        <% } %>
+                    </td>
+                    <td><%= inout.meditem.totalStock %></td>
+                    <td><%= inout.note %></td>
+                </tr>
+           <% }) %>
+        </tbody>
+    </table>
+    
+    <% } else { %>
+    
+    Sorry, there don't appear to be any ins or outs in the system.
+    
+    <% } %>
 
 <%- include('../partials/footer') %>

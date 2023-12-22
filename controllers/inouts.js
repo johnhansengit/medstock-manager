@@ -4,8 +4,13 @@ const { depletions } = require('../config/constants')
 
 
 const index = async (req, res) => {
+  
   try {
-      let inouts = await Inout.find({}).sort('dateTime')
+      let inouts = await Inout.find({})
+      .populate('meditem')
+      .populate('user')
+      .sort('dateTime')
+
       res.render('inouts/index', {
           title: 'Ins/Outs',
           inouts
@@ -46,13 +51,10 @@ const create = async (req, res) => {
 
   const meditem = await Meditem.findById(req.params.id);
   const stock = meditem.inStock.id(req.params.stockId);
-
   
   try {
     req.body.user = req.user._id;
-    req.body.userName = req.user.name;
-    req.body.userAvatar = req.user.avatar;
-    //add date etc.
+    req.body.meditem = meditem;
     
     if (req.body.depletion) {
       const depletedStock = parseInt(req.body.inout, 10);
@@ -62,13 +64,12 @@ const create = async (req, res) => {
       stock.stock += addedStock;
       req.body.addition = 'Received';
     }
-
+    
     await Inout.create(req.body)
     await stock.save();
     await meditem.save();
 
-
-      res.redirect('/current')
+    res.redirect('/current')
   } catch (err) {
       console.log(err)
       let meditems = await Meditem.find({}).sort('family')

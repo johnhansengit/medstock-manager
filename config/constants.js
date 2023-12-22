@@ -1,16 +1,23 @@
 const families = [
-    'Analgesics',
-    'Antibiotics',
+    'Analgesics/Antipyretics',
+    'Antibiotics (Oral)',
+    'Antiemetics',
+    'Anti-Diarrheals',
     'Antihistimines',
-    'Corticosteroids',
+    'Antihypertensives',
+    'Corticosteroids (Oral)',
+    'Diarrhetics',
+    'Emergency Drugs',
     'IV Fluids',
+    'Laxitives/Stool Softeners',
+    'Topicals & Drops',
     'Vaccines',
     'Lab',
     'Consumables'
 ];
 
 const depletions = [
-    'Patient Use',
+    'Patient Care',
     'Expired',
     'Waste',
     'Transfer Out',

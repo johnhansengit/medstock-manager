@@ -25,7 +25,10 @@ const inoutSchema = new Schema({
             message: 'Value must be greater than zero'
         }
     },
-    dateTime: Date,
+    dateTime: {
+        type: Date,
+        default: Date.now
+    },
     depletion: {
         type: String,
         enum: depletions

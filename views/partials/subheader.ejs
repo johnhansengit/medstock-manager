@@ -29,17 +29,18 @@
     const addMeditemBtn = document.getElementById('add-btn-subheader');
 
     // Event listeners
-    addMeditemBtn.addEventListener('click', function() {
-        fetch('/current/new')
-            .then(response => response.text())
-            .then(html => {
-                overlay.innerHTML = html;
-                overlay.style.display = 'flex'; 
-                setTimeout(() => overlay.style.opacity = '1', 10); 
-            })
-                .catch(err => console.error(err));
-        });
-    
+    if (addMeditemBtn) {
+        addMeditemBtn.addEventListener('click', function() {
+            fetch('/current/new')
+                .then(response => response.text())
+                .then(html => {
+                    overlay.innerHTML = html;
+                    overlay.style.display = 'flex'; 
+                    setTimeout(() => overlay.style.opacity = '1', 10); 
+                })
+                    .catch(err => console.error(err));
+            });
+    }
 
     mglass.addEventListener('click', function (event) {
         event.stopPropagation();
