@@ -581,6 +581,67 @@ nav ul li a:active {
   justify-content: flex-end;
 }
 
+#inout-main {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  margin-top: 2vh;
+}
+
+#inout-info-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#inout-item-container {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  flex-wrap: wrap;
+  margin-bottom: 1vh;
+}
+
+#inout-name-container {
+  font-size: 4vmin;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+#inout-doseform-container {
+  font-size: 3vmin;
+}
+
+#inout-form-area {
+  display: flex;
+  flex-direction: column;
+}
+
+#inout-reasons-container select {
+  font-size: 2vmin;
+  margin-bottom: 1vh;
+}
+
+#inout-numsubmit-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1vh;
+}
+
+#inout-input {
+  width: 60%;
+  font-size: 3vmin;
+}
+
+#inout-note-container {
+  margin-top: 1vh;
+}
+
+#note-input {
+  width: 100%;
+}
+
 table {
   width: 100%;
   font-weight: 300;
@@ -628,6 +689,11 @@ td a:hover {
   cursor: pointer;
 }
 
+#current-stock-table tbody td:nth-child(2),
+#current-stock-table tbody td:last-child {
+  font-weight: 500;
+}
+
 #filter-icon {
   margin: 0px 5px;
   transform: translate(0%, 15%);
@@ -636,6 +702,18 @@ td a:hover {
 }
 
 #filter-icon:hover {
+  cursor: pointer;
+}
+
+#inout-table tr td:nth-child(2),
+#inout-table td:nth-child(3),
+#inout-table th:nth-child(2),
+#inout-table th:nth-child(3) {
+  text-align: left;
+  padding-left: 10px;
+}
+
+#inout-table tbody tr:hover {
   cursor: pointer;
 }
 

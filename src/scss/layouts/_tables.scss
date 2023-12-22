@@ -47,6 +47,11 @@ td a:hover {
     cursor: pointer;
 }
 
+#current-stock-table tbody td:nth-child(2),
+#current-stock-table tbody td:last-child {
+    font-weight: 500;
+}
+
 #filter-icon {
     margin: 0px 5px;
     transform: translate(0%, 15%);
@@ -55,6 +60,20 @@ td a:hover {
 }
 
 #filter-icon:hover {
+    cursor: pointer;
+}
+
+// INOUT TABLE
+
+#inout-table tr td:nth-child(2),
+#inout-table td:nth-child(3),
+#inout-table th:nth-child(2),
+#inout-table th:nth-child(3) {
+    text-align: left;
+    padding-left: 10px;
+}
+
+#inout-table tbody tr:hover {
     cursor: pointer;
 }
 

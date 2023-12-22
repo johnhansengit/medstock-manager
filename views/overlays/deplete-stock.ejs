@@ -7,41 +7,53 @@
     </div>
 </div>
 
-<div id="inout-info-area">
-    <div id="inout-name-container">
-        <%= meditem.genericName %>
-    </div>
-    <div id="inout-doseform-container">
-        <%= meditem.dose %> <%= meditem.form %>
-    </div>
-    <div id="inout-lotno-container">
-        <%= stock.lotNo %>
-    </div>
-</div>
+<div id="inout-main">
 
-<div id="inout-form-area">
-    <form action="/log/<%= meditem._id %>/stock/<%= stock._id %>" method="POST" id="inout-add-form">
-        <div id="reasons-container">
-            <select name="depletion" required>
-                <% depletions.forEach((reason)=> { %>
-                    <% if (reason === 'Patient Use') { %>
-                        <option value="<%= reason %>" selected>
-                            <%= reason %>
-                        </option>
-                        <% } else { %>
-                    <option value="<%= reason %>">
-                        <%= reason %>
-                    </option>
-                    <% } %>
-                    <% }); %>
-            </select>
+    <div id="inout-info-area">
+        <div id="inout-item-container">
+            <div id="inout-name-container">
+                <%= meditem.genericName %>,
+            </div>
+            <div id="inout-doseform-container">
+                <%= meditem.dose %>
+                    <%= meditem.form %>
+            </div>
         </div>
-        <div id="numsubmit-container">
-            <input type="number" name="inout" id="inout-input" placeholder="No. units to deplete">
-            <button type="submit" id="form-submit-btn">Deplete Stock</button>
+        <div id="inout-lotno-container">
+            Lot no. <%= stock.lotNo %>
         </div>
-    </form>
-    <div id="inout-unit-container">
-        1 unit = <%= meditem.perUnit %>
     </div>
+
+    <div id="inout-form-area">
+        <form action="/log/<%= meditem._id %>/stock/<%= stock._id %>" method="POST" id="inout-add-form">
+            <div id="inout-reasons-container">
+                Reason: <select name="depletion" required>
+                    <% depletions.forEach((reason)=> { %>
+                        <% if (reason==='Patient Use' ) { %>
+                            <option value="<%= reason %>" selected>
+                                <%= reason %>
+                            </option>
+                            <% } else { %>
+                                <option value="<%= reason %>">
+                                    <%= reason %>
+                                </option>
+                                <% } %>
+                                    <% }); %>
+                </select>
+            </div>
+            <div id="inout-numsubmit-container">
+                <input type="number" name="inout" id="inout-input" placeholder="# units to deplete" autofocus required>
+                <button type="submit" id="form-submit-btn">Deplete Stock</button>
+            </div>
+
+            <div id="inout-unit-container">
+                1 unit = <%= meditem.perUnit %>
+            </div>
+
+            <div id="inout-note-container">
+                <input type="text" name="note" id="note-input" placeholder="Notes, if any">
+            </div>
+        </form>
+    </div>
+
 </div>
