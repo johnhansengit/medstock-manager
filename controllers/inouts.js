@@ -9,7 +9,7 @@ const index = async (req, res) => {
       let inouts = await Inout.find({})
       .populate('meditem')
       .populate('user')
-      .sort('dateTime')
+      .sort('-dateTime')
 
       res.render('inouts/index', {
           title: 'Ins/Outs',
@@ -64,10 +64,13 @@ const create = async (req, res) => {
       stock.stock += addedStock;
       req.body.addition = 'Received';
     }
+
     
-    await Inout.create(req.body)
     await stock.save();
     await meditem.save();
+    
+    req.body.updatedStock = meditem.totalStock;
+    await Inout.create(req.body)
 
     res.redirect('/current')
   } catch (err) {

@@ -34,6 +34,7 @@ const inoutSchema = new Schema({
         enum: depletions
     },
     addition: String,
+    updatedStock: Number,
     note: String
 });
 
