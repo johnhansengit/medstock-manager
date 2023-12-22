@@ -3,7 +3,7 @@ const { families } = require('../config/constants')
 
 const index = async (req, res) => {
     try {
-        let meditems = await Meditem.find({}).sort('genericName')
+        let meditems = await Meditem.find({}).sort('family')
         res.render('meditems/index', {
             title: 'Current Stock',
             meditems
@@ -76,16 +76,12 @@ const update = async (req, res) => {
     try {
         await Meditem.findByIdAndUpdate(req.params.id, req.body);
         res.redirect('/current')
-        // let meditems = await Meditem.find({}).sort('genericName')
-        // res.render('meditems/index', {
-        //     title: 'Current Stock',
-        //     meditems
-        // })
     } catch (err) {
         console.log(err)
+        let meditems = await Meditem.find({}).sort('family')
         res.render('meditems/index', {
             title: 'Current Stock',
-            meditem,
+            meditems,
             errorMsg: err.message
         });
     }

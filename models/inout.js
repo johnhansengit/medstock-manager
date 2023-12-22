@@ -20,9 +20,9 @@ const inoutSchema = new Schema({
         required: true,
         validate: {
             validator: function (value) {
-                return value !== 0;
+                return value > 0;
             },
-            message: 'In-out value cannot be zero'
+            message: 'Value must be greater than zero'
         }
     },
     dateTime: Date,
@@ -30,6 +30,7 @@ const inoutSchema = new Schema({
         type: String,
         enum: depletions
     },
+    addition: String,
     note: String
 });
 

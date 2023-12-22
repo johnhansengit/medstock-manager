@@ -1,0 +1,47 @@
+<div id="overlay-top-container">
+    <div id="family-container">
+        Deplete Stock
+    </div>
+    <div id="close-container">
+        <p id="close-text">Cancel [X]</p>
+    </div>
+</div>
+
+<div id="inout-info-area">
+    <div id="inout-name-container">
+        <%= meditem.genericName %>
+    </div>
+    <div id="inout-doseform-container">
+        <%= meditem.dose %> <%= meditem.form %>
+    </div>
+    <div id="inout-lotno-container">
+        <%= stock.lotNo %>
+    </div>
+</div>
+
+<div id="inout-form-area">
+    <form action="/log/<%= meditem._id %>/stock/<%= stock._id %>" method="POST" id="inout-add-form">
+        <div id="reasons-container">
+            <select name="depletion" required>
+                <% depletions.forEach((reason)=> { %>
+                    <% if (reason === 'Patient Use') { %>
+                        <option value="<%= reason %>" selected>
+                            <%= reason %>
+                        </option>
+                        <% } else { %>
+                    <option value="<%= reason %>">
+                        <%= reason %>
+                    </option>
+                    <% } %>
+                    <% }); %>
+            </select>
+        </div>
+        <div id="numsubmit-container">
+            <input type="number" name="inout" id="inout-input" placeholder="No. units to deplete">
+            <button type="submit" id="form-submit-btn">Deplete Stock</button>
+        </div>
+    </form>
+    <div id="inout-unit-container">
+        1 unit = <%= meditem.perUnit %>
+    </div>
+</div>

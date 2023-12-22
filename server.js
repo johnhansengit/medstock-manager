@@ -42,7 +42,7 @@ app.use(methodOverride('_method'));
 app.use('/', indexRouter);
 app.use('/current', meditemsRouter);
 app.use('/', stockRouter);
-app.use('/', inoutsRouter);
+app.use('/log', inoutsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

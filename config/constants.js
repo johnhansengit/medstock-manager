@@ -1,10 +1,10 @@
 const families = [
     'Analgesics',
-    'Corticosteroids',
+    'Antibiotics',
     'Antihistimines',
-    'Antiobiotics',
-    'Vaccines',
+    'Corticosteroids',
     'IV Fluids',
+    'Vaccines',
     'Lab',
     'Consumables'
 ];

@@ -27,7 +27,7 @@
     grid-template-areas:
         "star family close";
     align-items: center;
-    background-color: var(--1);
+    background-color: var(--darkmain);
     width: 100%;
     padding: 0 5%
 }
@@ -221,3 +221,5 @@
     flex-direction: row;
     justify-content: flex-end;
 }
+
+// ADD/DEPLETE OVERLAY

@@ -21,7 +21,12 @@
                 <td><%= item.genericName %></td>
                 <td><%= item.dose %> <%= item.form %></td>
                 <td><%= item.family %></td>
-                <td><%= new Date(item.firstExp).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' }) %></td>
+                <td><% if (item.firstExp) { %>
+                    <%= new Date(item.firstExp).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' }) %>
+                    <% } else { %>
+                        --
+                        <% } %>
+                </td>
                 <td><%= item.parLevel %></td>
                 <td><%= item.totalStock %></td>
             </tr>
@@ -113,11 +118,25 @@ function confirmDelete(meditemId) {
 
 
 function addStock(stockId, meditemId) {
-    window.location.href = `/current/${meditemId}/stock/${stockId}/add`;
+    fetch(`/log/${meditemId}/stock/${stockId}/add`)
+        .then(response => response.text())
+        .then(html => {
+            overlay.innerHTML = html;
+            overlay.style.display = 'flex'; 
+                setTimeout(() => overlay.style.opacity = '1', 10); 
+                })
+        .catch(err => console.error(err));
 }
 
 function depleteStock(stockId, meditemId) {
-    window.location.href = `/current/${meditemId}/stock/${stockId}/deplete`;
+    fetch(`/log/${meditemId}/stock/${stockId}/deplete`)
+        .then(response => response.text())
+        .then(html => {
+            overlay.innerHTML = html;
+            overlay.style.display = 'flex'; 
+                setTimeout(() => overlay.style.opacity = '1', 10); 
+                })
+        .catch(err => console.error(err));
 }
 
 </script>

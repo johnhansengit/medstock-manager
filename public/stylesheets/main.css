@@ -200,7 +200,7 @@ button:hover {
   width: 16vmin;
   background-color: var(--darkmain);
   border: none;
-  border-radius: 2vmin;
+  border-radius: 1vmin;
   padding: 1.5vmin;
   color: var(--white);
   font-size: 2.5vmin;
@@ -388,7 +388,7 @@ nav ul li a:active {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas: "star family close";
   align-items: center;
-  background-color: var(--1);
+  background-color: var(--darkmain);
   width: 100%;
   padding: 0 5%;
 }
