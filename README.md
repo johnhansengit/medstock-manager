@@ -12,7 +12,7 @@ Features include stock item search and filter, automatic logging of stock ins an
 - HTML
 - SASS/SCSS
 - JavaScript
-- JSON
+- AJAX
 - Express.js
 - MongoDB
 - Mongoose

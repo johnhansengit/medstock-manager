@@ -1,0 +1,28 @@
+<tbody>
+    for each family
+        row class family
+            cell family Name
+                for each item
+                    if item family = family
+                        item display
+
+
+
+
+    <% meditems.forEach((item) => { %>
+        <tr data-id="<%= item.id %>">
+            <td><img src="/images/star-outline.svg" alt="" class="star-toggle" id="star-table"></td>
+            <td><%= item.genericName %></td>
+            <td><%= item.dose %> <%= item.form %></td>
+            <td><%= item.family %></td>
+            <td><% if (item.firstExp) { %>
+                <%= new Date(item.firstExp).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' }) %>
+                <% } else { %>
+                    --
+                    <% } %>
+            </td>
+            <td><%= item.parLevel %></td>
+            <td><%= item.totalStock %></td>
+        </tr>
+   <% }) %>
+</tbody>

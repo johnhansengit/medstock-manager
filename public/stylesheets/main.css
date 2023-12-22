@@ -646,6 +646,7 @@ table {
   width: 100%;
   font-weight: 300;
   background-color: var(--white);
+  border-collapse: collapse;
 }
 
 th,
@@ -653,10 +654,6 @@ td {
   vertical-align: middle;
   text-align: center;
   padding: 5px;
-}
-
-th {
-  border: none;
 }
 
 td {
@@ -667,6 +664,11 @@ th {
   background-color: var(--darkmain);
   color: var(--white);
   border-radius: 5px 5px 0 0;
+  border-right: 2px solid var(--white);
+}
+
+th:last-child {
+  border-right: none;
 }
 
 tr:hover {
@@ -703,6 +705,18 @@ td a:hover {
 
 #filter-icon:hover {
   cursor: pointer;
+}
+
+.family-header td {
+  text-transform: uppercase;
+  text-align: left;
+  padding-left: 10px;
+  font-size: 2.5vmin;
+}
+
+.family-header:hover {
+  background-color: transparent;
+  cursor: default;
 }
 
 #inout-table tr td:nth-child(2),
