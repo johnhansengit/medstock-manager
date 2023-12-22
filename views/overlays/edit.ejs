@@ -1,0 +1,54 @@
+<div id="overlay-top-container">
+    <div id="family-container">
+        Edit Item
+    </div>
+    <div id="close-container">
+        <p id="close-text">Cancel [X]</p>
+    </div>
+</div>
+
+<div id="form-container">
+
+    <form action="/current/<%= meditem._id %>?_method=PUT" method="POST" id="add-meditem-form">
+        <div id="form-quickref-container">
+            <input type="checkbox" id="quickref" name="quickref" value="<%= meditem.quickRef %>"> <label for="quickref">Quick Reference</label>
+        </div>
+
+        <div id="form-namefamily-container">
+            <input type="text" name="genericName" placeholder="Generic Name" required value="<%= meditem.genericName %>">
+            <select name="family" required>
+                <option value="" disabled hidden>Item Family</option>
+                <% families.forEach((family)=> { %>
+                    <% if (family = meditem.family) { %>
+                    <option value="<%= family %>" selected>
+                        <%= family %>
+                    </option>
+                    <% } else { %>
+                        <option value="<%= family %>">
+                            <%= family %>
+                        </option>
+                        <% } %>
+                    <% }); %>
+            </select>
+        </div>
+
+        <div id="form-doseform-container">
+            <input type="text" name="dose" placeholder="Dose (e.g., 200mg)" value="<%= meditem.dose %>">
+            <input type="text" name="form" placeholder="Formulation (tab, cap, cream, etc.)" value="<%= meditem.form %>">
+        </div>
+
+        <div id="form-unit-container">
+            <div id="form-units"><label>1 unit = </label><input type="text" name="perUnit" placeholder="e.g., 1 tablet" value="<%= meditem.perUnit %>"></div>
+            <div id="form-par"><label>par level: </label><input type="number" name="parLevel" placeholder="min. no. of units" value="<%= meditem.parLevel %>"></div>
+        </div>
+
+        <div id="form-notes-container">
+            <textarea name="notes" rows="10" cols="50" value="<%= meditem.notes %>">Notes...</textarea>
+        </div>
+
+        <div id="form-submitbtn-container">
+            <button type="submit" id="form-submit-btn">Update</button>
+        </div>
+
+    </form>
+</div>

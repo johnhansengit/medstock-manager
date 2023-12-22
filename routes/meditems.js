@@ -6,8 +6,10 @@ const meditemsCtrl = require('../controllers/meditems');
 
 router.get('/', ensureAuthUser, meditemsCtrl.index);
 router.get('/new', meditemsCtrl.new);
-router.get('/:id', meditemsCtrl.show);
-router.post('/', meditemsCtrl.create);
 router.delete('/:id', meditemsCtrl.delete);
+router.get('/:id', meditemsCtrl.show);
+router.get('/:id/edit', meditemsCtrl.edit);
+router.post('/', meditemsCtrl.create);
+router.put('/:id', meditemsCtrl.update);
 
 module.exports = router;

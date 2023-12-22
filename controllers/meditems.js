@@ -3,7 +3,7 @@ const { families } = require('../config/constants')
 
 const index = async (req, res) => {
     try {
-        let meditems = await Meditem.find({}).sort('brandName')
+        let meditems = await Meditem.find({}).sort('genericName')
         res.render('meditems/index', {
             title: 'Current Stock',
             meditems
@@ -18,8 +18,7 @@ const index = async (req, res) => {
 }
 
 const newMeditem = (req, res) => {
-    res.render('meditems/new', {
-        title: 'New Item',
+    res.render('overlays/new', {
         families,
     });
 }
@@ -66,7 +65,7 @@ const deleteItem = async (req, res) => {
 const edit = async (req, res) => {
     const meditem = await Meditem.findById(req.params.id);
     
-    res.render('meditems/edit', {
+    res.render('overlays/edit', {
         title: 'Edit Item',
         meditem,
         families
@@ -75,12 +74,18 @@ const edit = async (req, res) => {
 
 const update = async (req, res) => {
     try {
-        await Meditem.update(req.params.id, req.body)
-        res.redirect(`/current/${req.params.id}`)
+        await Meditem.findByIdAndUpdate(req.params.id, req.body);
+        res.redirect('/current')
+        // let meditems = await Meditem.find({}).sort('genericName')
+        // res.render('meditems/index', {
+        //     title: 'Current Stock',
+        //     meditems
+        // })
     } catch (err) {
         console.log(err)
-        res.render('meditems/show', {
-            title: 'Item Detail',
+        res.render('meditems/index', {
+            title: 'Current Stock',
+            meditem,
             errorMsg: err.message
         });
     }

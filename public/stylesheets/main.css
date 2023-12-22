@@ -572,6 +572,7 @@ nav ul li a:active {
 #form-notes-container textarea {
   flex: 1;
   font-family: "M PLUS Rounded 1c", sans-serif;
+  padding: 1vmin;
 }
 
 #form-submitbtn-container {
