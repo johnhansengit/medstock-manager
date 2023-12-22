@@ -767,11 +767,6 @@ td a:hover {
   font-size: 2.5vmin;
 }
 
-.family-header:hover {
-  background-color: transparent;
-  cursor: default;
-}
-
 #inout-table tr td:nth-child(2),
 #inout-table td:nth-child(3),
 #inout-table th:nth-child(2),
