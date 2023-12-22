@@ -16,13 +16,13 @@
     </thead>
     <tbody>
         <% families.forEach((family) => { %>
-            <% if (meditems.some(item => item.family === family)) { %>
+            <% if (meditems.some(item => item.family === family.name)) { %>
                 <tr class="family-header">
-                    <td colspan="7"><%= family %></td>
+                    <td colspan="7"><%= family.name %></td>
                 </tr>
             <% } %>
             <% meditems.forEach((item) => { %>
-                <% if (item.family === family) { %>
+                <% if (item.family === family.name) { %>
                     <tr data-id="<%= item.id %>">
                         <td><img src="/images/star-outline.svg" alt="" class="star-toggle" id="star-table"></td>
                         <td><%= item.genericName %></td>

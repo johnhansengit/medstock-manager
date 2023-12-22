@@ -19,8 +19,8 @@
             <select name="family" required>
                 <option value="" disabled selected hidden>Item Family</option>
                 <% families.forEach((family)=> { %>
-                    <option value="<%= family %>">
-                        <%= family %>
+                    <option value="<%= family.name %>">
+                        <%= family.name %>
                     </option>
                     <% }); %>
             </select>
