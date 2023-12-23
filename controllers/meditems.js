@@ -49,6 +49,7 @@ const show = async (req, res) => {
 
     res.render('overlays/item', {
         meditem,
+        families,
         futureDate
     });
 }

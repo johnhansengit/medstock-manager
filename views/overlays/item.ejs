@@ -1,4 +1,11 @@
-<div id="overlay-top-container">
+<% let containerClass
+    families.forEach((family) => {
+    if (family.name === meditem.family) {
+        containerClass = family.class
+    }
+}) %>
+
+<div id="overlay-top-container" class="<%= containerClass %>">
     <img src="/images/star-outline.svg" alt="" class="star-toggle" id="star-overlay">
     <div id="family-container">
         <%= meditem.family %>

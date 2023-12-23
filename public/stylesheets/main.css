@@ -28,55 +28,55 @@
 }
 
 .c1 {
-  background-color: var(--1);
+  background-color: var(--1) !important;
 }
 
 .c2 {
-  background-color: var(--2);
+  background-color: var(--2) !important;
 }
 
 .c3 {
-  background-color: var(--3);
+  background-color: var(--3) !important;
 }
 
 .c4 {
-  background-color: var(--4);
+  background-color: var(--4) !important;
 }
 
 .c5 {
-  background-color: var(--5);
+  background-color: var(--5) !important;
 }
 
 .c6 {
-  background-color: var(--6);
+  background-color: var(--6) !important;
 }
 
 .c7 {
-  background-color: var(--7);
+  background-color: var(--7) !important;
 }
 
 .c8 {
-  background-color: var(--8);
+  background-color: var(--8) !important;
 }
 
 .c9 {
-  background-color: var(--9);
+  background-color: var(--9) !important;
 }
 
 .c10 {
-  background-color: var(--10);
+  background-color: var(--10) !important;
 }
 
 .c11 {
-  background-color: var(--11);
+  background-color: var(--11) !important;
 }
 
 .c12 {
-  background-color: var(--12);
+  background-color: var(--12) !important;
 }
 
 .c13 {
-  background-color: var(--13);
+  background-color: var(--13) !important;
 }
 
 * {
