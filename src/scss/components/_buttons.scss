@@ -74,7 +74,9 @@ button:hover {
     box-shadow: none;
 }
 
-#quick-delete-btn {
+#quick-delete-btn,
+#item-edit-btn,
+#item-delete-btn {
     border: none;
     background-color: transparent;
     color: var(--darkmain);
@@ -84,6 +86,11 @@ button:hover {
 
 #quick-delete-btn:hover {
     color: var(--white);
+}
+
+#item-edit-btn:hover,
+#item-delete-btn:hover {
+    color: var(--starfill);
 }
 
 #login-btn {

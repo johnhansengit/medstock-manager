@@ -11,8 +11,11 @@ const index = async (req, res) => {
         })
     } catch (err) {
         console.log(err)
+        let meditems = await Meditem.find({}).sort('genericName')
         res.render('meditems/index', {
             title: 'Current Stock',
+            meditems,
+            families,
             errorMsg: err.message
         });
     }
@@ -30,8 +33,11 @@ const create = async (req, res) => {
         res.redirect('/current')
     } catch (err) {
         console.log(err)
-        res.render('meditems/new', {
-            title: 'New Item',
+        let meditems = await Meditem.find({}).sort('genericName')
+        res.render('meditems/index', {
+            title: 'Current Stock',
+            meditems,
+            families,
             errorMsg: err.message
         });
     }
@@ -84,6 +90,7 @@ const update = async (req, res) => {
         res.render('meditems/index', {
             title: 'Current Stock',
             meditems,
+            families,
             errorMsg: err.message
         });
     }

@@ -35,6 +35,14 @@ td a:hover {
     color: var(--white);
 }
 
+.warning-stock {
+    background-color: var(--accent) !important;
+}
+
+.alert-stock {
+    background-color: var(--alert) !important;
+}
+
 // CURRENT STOCK TABLE
 
 #current-stock-table tr td:nth-child(2),

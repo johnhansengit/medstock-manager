@@ -212,7 +212,9 @@ button:hover {
   box-shadow: none;
 }
 
-#quick-delete-btn {
+#quick-delete-btn,
+#item-edit-btn,
+#item-delete-btn {
   border: none;
   background-color: transparent;
   color: var(--darkmain);
@@ -222,6 +224,11 @@ button:hover {
 
 #quick-delete-btn:hover {
   color: var(--white);
+}
+
+#item-edit-btn:hover,
+#item-delete-btn:hover {
+  color: var(--starfill);
 }
 
 #login-btn {
@@ -730,6 +737,14 @@ tr:hover {
 
 td a:hover {
   color: var(--white);
+}
+
+.warning-stock {
+  background-color: var(--accent) !important;
+}
+
+.alert-stock {
+  background-color: var(--alert) !important;
 }
 
 #current-stock-table tr td:nth-child(2),

@@ -31,7 +31,7 @@ const meditemSchema = new Schema({
     form: String,
     family: {
         type: String,
-        enum: families,
+        enum: families.map(family => family.name),
         required: true
     },
     perUnit: String,
@@ -39,6 +39,7 @@ const meditemSchema = new Schema({
         type: Number,
         min: 0
     },
+    warningLevel: Number,
     quickRef: {
         type: Boolean,
         default: false
@@ -52,13 +53,12 @@ const meditemSchema = new Schema({
     timestamps: true
 });
 
-// MIDDLEWARE 
-// (NOTE: only works when .save() is called, not .update() or findOneAndUpdate(), etc.)
+// MIDDLEWARE -- NOTE: only works when .save() is called, not .update() or findOneAndUpdate(), etc.)
 meditemSchema.pre('save', function (next) {
     // Calculate meditem.totalStock
     this.totalStock = this.inStock.reduce((sum, stock) => sum + (stock.stock || 0), 0);
 
-    //Calculate meditem.firstExp and meditem.lastExp
+    // Calculate meditem.firstExp and meditem.lastExp
     if (this.inStock.length > 0) {
         const sortedStock = this.inStock.slice().sort((a, b) => a.expDate - b.expDate);
         this.firstExp = sortedStock[0].expDate;
@@ -67,6 +67,9 @@ meditemSchema.pre('save', function (next) {
         this.firstExp = null;
         this.lastExp = null;
     }
+
+    // Calculate the meditem.warningLevel
+    this.warningLevel = Math.max(Math.floor(this.parLevel * 1.2), this.parLevel + 1);
 
     next();
 });

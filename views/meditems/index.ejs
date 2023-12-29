@@ -35,7 +35,13 @@
                                 <% } %>
                         </td>
                         <td><%= item.parLevel %></td>
-                        <td><%= item.totalStock %></td>
+                        <% if (item.totalStock < item.parLevel) { %>
+                            <td class="alert-stock"><%= item.totalStock %></td>
+                        <% } else if (item.totalStock <= item.warningLevel) { %>
+                            <td class="warning-stock"><%= item.totalStock %></td>
+                        <% } else { %>
+                            <td><%= item.totalStock %></td>
+                            <% } %>
                     </tr>
                 <% } %>
             <% }); %>
@@ -123,8 +129,6 @@ function confirmDelete(meditemId) {
             });
     }
 }
-
-
 
 function addStock(stockId, meditemId) {
     fetch(`/log/${meditemId}/stock/${stockId}/add`)
