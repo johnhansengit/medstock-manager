@@ -11,5 +11,6 @@ router.get('/:id', meditemsCtrl.show);
 router.get('/:id/edit', meditemsCtrl.edit);
 router.post('/', meditemsCtrl.create);
 router.put('/:id', meditemsCtrl.update);
+// router.get('/', meditemsCtrl.search);
 
 module.exports = router;

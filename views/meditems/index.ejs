@@ -107,11 +107,12 @@ function edit(meditemId) {
                 .then(response => response.text())
                 .then(html => {
                     overlay.innerHTML = html;
-                overlay.style.display = 'flex'; 
-                setTimeout(() => overlay.style.opacity = '1', 10); 
-            })
-                .catch(err => console.error(err));
-        }
+            //     overlay.style.display = 'flex'; 
+            //     setTimeout(() => overlay.style.opacity = '1', 10); 
+            // })
+                })
+                .catch(err => console.error(err));         
+}
 
 
 function confirmDelete(meditemId) {

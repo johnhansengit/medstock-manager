@@ -96,6 +96,29 @@ const update = async (req, res) => {
     }
 }
 
+// const search = async (req, res) => {
+//     try {
+//         const searchQuery = req.query.search
+
+//         let meditems = await Meditem.find({ "genericName": { $regex: searchQuery, $options: 'i' } });
+
+//         res.render('meditems/index', {
+//             title: `Search Results: ${searchQuery}`,
+//             meditems,
+//             families
+//         });
+//     } catch (err) {
+//         console.log(err)
+//         let meditems = await Meditem.find({}).sort('genericName')
+//         res.render('meditems/index', {
+//             title: 'Current Stock',
+//             meditems,
+//             families,
+//             errorMsg: "Item not found"
+//         });
+//     }
+// }
+
 module.exports = {
     index,
     show,
@@ -103,5 +126,6 @@ module.exports = {
     create,
     delete: deleteItem,
     edit,
-    update
+    update,
+    // search
 }

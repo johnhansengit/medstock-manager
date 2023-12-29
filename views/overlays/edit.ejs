@@ -19,7 +19,7 @@
             <select name="family" required>
                 <option value="" disabled hidden>Item Family</option>
                 <% families.forEach((family)=> { %>
-                    <% if (family.name = meditem.family) { %>
+                    <% if (family.name === meditem.family) { %>
                     <option value="<%= family.name %>" selected>
                         <%= family.name %>
                     </option>
