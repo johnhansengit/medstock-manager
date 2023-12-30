@@ -29,6 +29,9 @@ const newMeditem = (req, res) => {
 
 const create = async (req, res) => {
     try {
+        // Convert 'quickRef' from string to Boolean
+        req.body.quickRef = req.body.quickRef === 'on';
+
         await Meditem.create(req.body)
         res.redirect('/current')
     } catch (err) {
@@ -82,6 +85,9 @@ const edit = async (req, res) => {
 
 const update = async (req, res) => {
     try {
+        // Convert 'quickRef' from string to Boolean
+        req.body.quickRef = req.body.quickRef === 'on';
+
         await Meditem.findByIdAndUpdate(req.params.id, req.body);
         res.redirect('/current')
     } catch (err) {
@@ -96,28 +102,32 @@ const update = async (req, res) => {
     }
 }
 
-// const search = async (req, res) => {
-//     try {
-//         const searchQuery = req.query.search
+const search = async (req, res) => {
+    console.log('Search controller activated')
+    // try {
+    //     console.log('Search controller tried')
+    //     const searchQuery = req.query.search
+    //     console.log(`searchQuery is ${searchQuery}`)
 
-//         let meditems = await Meditem.find({ "genericName": { $regex: searchQuery, $options: 'i' } });
+    //     let meditems = await Meditem.find({ "genericName": searchQuery });
+    //     console.log(`meditems is ${meditems}`)
 
-//         res.render('meditems/index', {
-//             title: `Search Results: ${searchQuery}`,
-//             meditems,
-//             families
-//         });
-//     } catch (err) {
-//         console.log(err)
-//         let meditems = await Meditem.find({}).sort('genericName')
-//         res.render('meditems/index', {
-//             title: 'Current Stock',
-//             meditems,
-//             families,
-//             errorMsg: "Item not found"
-//         });
-//     }
-// }
+    //     res.render('meditems/index', {
+    //         title: `Search Results: ${searchQuery}`,
+    //         meditems,
+    //         families
+    //     });
+    // } catch (err) {
+    //     console.log(err)
+    //     let meditems = await Meditem.find({}).sort('genericName')
+    //     res.render('meditems/index', {
+    //         title: 'Current Stock',
+    //         meditems,
+    //         families,
+    //         errorMsg: "Item not found"
+    //     });
+    // }
+}
 
 module.exports = {
     index,
@@ -127,5 +137,5 @@ module.exports = {
     delete: deleteItem,
     edit,
     update,
-    // search
+    search
 }

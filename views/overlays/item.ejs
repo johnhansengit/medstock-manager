@@ -6,7 +6,12 @@
 }) %>
 
 <div id="overlay-top-container" class="<%= containerClass %>">
-    <img src="/images/star-outline.svg" alt="" class="star-toggle" id="star-overlay">
+    <% if (meditem.quickRef === true) { %>
+        <img src="/images/star-filled.svg" alt="" class="star-toggle" id="star-overlay">
+    <% } else { %>
+        <img src="/images/star-outline.svg" alt="" class="star-toggle" id="star-overlay">
+    <% } %>
+    
     <div id="family-container">
         <%= meditem.family %>
     </div>

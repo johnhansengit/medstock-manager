@@ -11,7 +11,11 @@
 
     <form action="/current/<%= meditem._id %>?_method=PUT" method="POST" id="add-meditem-form">
         <div id="form-quickref-container">
-            <input type="checkbox" id="quickref" name="quickref" value="<%= meditem.quickRef %>"> <label for="quickref">Quick Reference</label>
+            <% if (meditem.quickRef === true) { %>
+                <input type="checkbox" id="quickref" name="quickRef" checked> <label for="quickRef">Quick Reference</label>
+            <% } else { %>
+                <input type="checkbox" id="quickref" name="quickRef"> <label for="quickRef">Quick Reference</label>
+            <% } %>
         </div>
 
         <div id="form-namefamily-container">

@@ -5,7 +5,7 @@
 <table id="current-stock-table">
     <thead>
         <tr>
-            <th></th>
+            <th><img src="/images/star-outline.svg" alt="" class="star-toggle" id="star-table"></th>
             <th>Generic Name</th>
             <th>Dose/Form</th>
             <th>Family <img src="/images/filter.svg" alt="" id="filter-icon"></th>
@@ -24,7 +24,12 @@
             <% meditems.forEach((item) => { %>
                 <% if (item.family === family.name) { %>
                     <tr data-id="<%= item.id %>">
-                        <td><img src="/images/star-outline.svg" alt="" class="star-toggle" id="star-table"></td>
+                        <td><% if (item.quickRef === true) { %>
+                            <img src="/images/star-filled.svg" alt="" class="star-toggle" id="star-table">
+                        <% } else { %>
+                            <img src="/images/star-outline.svg" alt="" class="star-toggle" id="star-table">
+                        <% } %>
+                        </td>
                         <td><%= item.genericName %></td>
                         <td><%= item.dose %> <%= item.form %></td>
                         <td><%= item.family %></td>

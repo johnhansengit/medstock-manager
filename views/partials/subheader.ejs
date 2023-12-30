@@ -6,8 +6,8 @@
     </div>
     <div id="btns-row-container">
         <div id="search-container">
-            <form action="/current" method="GET">
-                <input id="search-input" type="search" name="search" placeholder="Search">
+            <form id="search-form" action="/current/search" method="GET">
+                <input id="search-input" type="search" name="q" placeholder="Search">
             </form>
             <div id="mglass">&#9906;</div>
         </div>
@@ -24,6 +24,7 @@
     let searchIsOpen = false;
     const subheader = document.getElementById('subheader');
     const searchInput = document.getElementById('search-input');
+    const searchForm = document.getElementById('search-form');
     const searchBtn = document.getElementById('search-container');
     const mglass = document.getElementById('mglass');
     const addMeditemBtn = document.getElementById('add-btn-subheader');
@@ -45,7 +46,7 @@
     mglass.addEventListener('click', function (event) {
         event.stopPropagation();
         if (searchIsOpen) {
-            searchInput.form.submit();
+            searchForm.submit();
         } else {
             toggleSearch();
         }
@@ -54,7 +55,6 @@
     searchBtn.addEventListener('click', function (event) {
         event.stopPropagation();
         toggleSearch();
-        
     });
 
     searchInput.addEventListener('click', function (event) {
