@@ -431,7 +431,7 @@ nav ul li a:active {
   transform: translate(50%, -50%);
   z-index: 10;
   width: 50%;
-  max-height: 66%;
+  max-height: 75%;
   overflow-y: auto;
   overflow-x: hidden;
   border-radius: 10px;
