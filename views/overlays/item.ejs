@@ -53,13 +53,27 @@
                 <td>
                     <%= stock.lotNo %>
                 </td>
-                <td>
-                    <%= new Date(stock.expDate).toLocaleDateString('en-US', { day: 'numeric', month: 'short' , year: 'numeric'
-                        }) %>
+
+                <% let today = new Date(), warningDate = new Date();
+                warningDate.setMonth(today.getMonth() + 1);
+                let stockExpDate = new Date(stock.expDate);
+                if (stockExpDate < today) { %>
+                    <td class="alert-stock">
+                <% } else if (stockExpDate <= warningDate) { %>
+                    <td class="warning-stock">
+                <% } else { %>
+                    <td>
+                <% } %>
+                <%= stockExpDate.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' }) %></td>
                 </td>
-                <td>
-                    <%= stock.stock %>
-                </td>
+
+                <% if (stock.stock < meditem.parLevel) { %>
+                            <td class="alert-stock"><%= stock.stock %></td>
+                        <% } else if (stock.stock <= meditem.warningLevel) { %>
+                            <td class="warning-stock"><%= stock.stock %></td>
+                        <% } else { %>
+                            <td><%= stock.stock %></td>
+                            <% } %>
                 <td>
                     <button onclick="addStock('<%= stock._id %>', '<%= meditem._id %>')"
                         class="stock-btn">+</button>
