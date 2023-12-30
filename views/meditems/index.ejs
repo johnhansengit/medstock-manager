@@ -33,12 +33,24 @@
                         <td><%= item.genericName %></td>
                         <td><%= item.dose %> <%= item.form %></td>
                         <td><%= item.family %></td>
-                        <td><% if (item.firstExp) { %>
-                            <%= new Date(item.firstExp).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' }) %>
+                        
+                        <% let today = new Date(), warningDate = new Date();
+                            warningDate.setMonth(today.getMonth() + 1); %>
+
+                        <% if (!item.firstExp) { %>
+                            <td>--</td>
+
+                        <% } else {
+                            let firstExpDate = new Date(item.firstExp);
+                            if (firstExpDate < today) { %>
+                                <td class="alert-stock">
+                            <% } else if (firstExpDate <= warningDate) { %>
+                                <td class="warning-stock">
                             <% } else { %>
-                                --
-                                <% } %>
-                        </td>
+                                <td>
+                            <% } %>
+                            <%= firstExpDate.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' }) %></td>
+                        <% } %>
                         <td><%= item.parLevel %></td>
                         <% if (item.totalStock < item.parLevel) { %>
                             <td class="alert-stock"><%= item.totalStock %></td>

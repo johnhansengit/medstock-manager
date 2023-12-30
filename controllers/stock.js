@@ -32,83 +32,83 @@ const deleteStock = async (req, res) => {
 };
 
 
-const update = async (req, res) => {
-    try {
-        const meditem = await Meditem.findById(req.params.id);
-        const stock = meditem.inStock.id(req.params.stockId);
+// const update = async (req, res) => {
+//     try {
+//         const meditem = await Meditem.findById(req.params.id);
+//         const stock = meditem.inStock.id(req.params.stockId);
 
-        if (!stock) {
-            return res.status(404).send('Stock not found');
-        }
+//         if (!stock) {
+//             return res.status(404).send('Stock not found');
+//         }
 
-        if (req.body.addedStock) {
-            const addedStock = parseInt(req.body.addedStock, 10);
-            stock.stock += addedStock;
-        }
+//         if (req.body.addedStock) {
+//             const addedStock = parseInt(req.body.addedStock, 10);
+//             stock.stock += addedStock;
+//         }
 
-        if (req.body.depletedStock) {
-            const depletedStock = parseInt(req.body.depletedStock, 10);
-            stock.stock -= depletedStock;
-        }
+//         if (req.body.depletedStock) {
+//             const depletedStock = parseInt(req.body.depletedStock, 10);
+//             stock.stock -= depletedStock;
+//         }
 
-        await meditem.save();
+//         await meditem.save();
 
-        res.redirect(`/current/${meditem._id}`);
-    } catch (err) {
-        console.log(err);
-        res.render('meditems/show', {
-            title: 'Item Detail',
-            errorMsg: err.message
-        });
-    }
-}
+//         res.redirect(`/current/${meditem._id}`);
+//     } catch (err) {
+//         console.log(err);
+//         res.render('meditems/show', {
+//             title: 'Item Detail',
+//             errorMsg: err.message
+//         });
+//     }
+// }
 
-const add = async (req, res) => {
-    try {
-        const meditem = await Meditem.findById(req.params.id);
-        const stock = meditem.inStock.id(req.params.stockId);
+// const add = async (req, res) => {
+//     try {
+//         const meditem = await Meditem.findById(req.params.id);
+//         const stock = meditem.inStock.id(req.params.stockId);
 
-        if (!stock) { throw new Error('Stock not found'); }
+//         if (!stock) { throw new Error('Stock not found'); }
 
-        res.render('stock/add', {
-            title: 'Add Stock',
-            meditem,
-            stock
-        });
-    } catch (err) {
-        console.log(err)
-        res.render('meditems/show', {
-            title: 'Item Detail',
-            errorMsg: err.message
-        });
-    }
-}
+//         res.render('stock/add', {
+//             title: 'Add Stock',
+//             meditem,
+//             stock
+//         });
+//     } catch (err) {
+//         console.log(err)
+//         res.render('meditems/show', {
+//             title: 'Item Detail',
+//             errorMsg: err.message
+//         });
+//     }
+// }
 
-const deplete = async (req, res) => {
-    try {
-        const meditem = await Meditem.findById(req.params.id);
-        const stock = meditem.inStock.id(req.params.stockId);
+// const deplete = async (req, res) => {
+//     try {
+//         const meditem = await Meditem.findById(req.params.id);
+//         const stock = meditem.inStock.id(req.params.stockId);
 
-        if (!stock) { throw new Error('Stock not found'); }
+//         if (!stock) { throw new Error('Stock not found'); }
 
-        res.render('stock/deplete', {
-            title: 'Deplete Stock',
-            meditem,
-            stock
-        });
-    } catch (err) {
-        console.log(err)
-        res.render('meditems/show', {
-            title: 'Item Detail',
-            errorMsg: err.message
-        });
-    }
-}
+//         res.render('stock/deplete', {
+//             title: 'Deplete Stock',
+//             meditem,
+//             stock
+//         });
+//     } catch (err) {
+//         console.log(err)
+//         res.render('meditems/show', {
+//             title: 'Item Detail',
+//             errorMsg: err.message
+//         });
+//     }
+// }
 
 module.exports = {
     create,
     delete: deleteStock,
-    update,
-    add,
-    deplete
+    // update,
+    // add,
+    // deplete
 }
