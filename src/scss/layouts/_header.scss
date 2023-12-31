@@ -43,6 +43,7 @@ nav ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    align-items: center;
 }
 
 #left-nav ul {
@@ -70,3 +71,32 @@ nav ul li a:active {
     background-color: var(--white);
     color: var(--darkmain);
 }
+
+#druginfo-nav {
+    display: inline;
+    opacity: 1;
+    transition: all 0.4s ease;
+}
+
+#druginfo-nav:hover {
+    cursor: pointer;
+}
+
+#druginfo-searchform {
+    display: none;
+    opacity: 0;
+    // background-color: var(--accent);
+    border: 10px solid var(--accent);
+    border-radius: 10px;
+    transition: all 0.4s ease;
+}
+
+#druginfo-searchbar {
+    display: none;
+    opacity: 0;
+    border-radius: 5px;
+    border: 1px solid var(--lightgrey);
+    padding: 5px;
+    transition: all 0.4s ease;
+}
+

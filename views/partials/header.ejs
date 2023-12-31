@@ -9,10 +9,11 @@
     </title>
     <link rel=“stylesheet” href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel='stylesheet' href='/stylesheets/main.css' />
+
 </head>
 
 <body>
-    <header>
+    <header id="header">
 
         <nav id="left-nav">
             <ul>
@@ -28,10 +29,68 @@
         <nav id="right-nav">
             <ul>
                 <li><a href="">Order</a></li>
-                <li><a href="">Drug Info</a></li>
+                <li>
+                    <a href="" id="druginfo-nav">Drug Search</a>
+                    <form action="" id="druginfo-searchform">
+                        <input type="search" id="druginfo-searchbar" placeholder="Search database">
+                    </form>
+                </li>
             </ul>
         </nav>
 
     </header>
+
+    <script>
+        const drugInfoNav = document.getElementById('druginfo-nav');
+        const drugInfoSearchForm = document.getElementById('druginfo-searchform');
+        const drugInfoSearchBar = document.getElementById('druginfo-searchbar');
+        const header = document.getElementById('header');
+        let headerSearchIsOpen = false;
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            drugInfoNav.addEventListener('click', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                toggleHeaderSearch();
+            });
+
+            header.addEventListener('click', function (event) {
+                if (headerSearchIsOpen) {
+                    toggleHeaderSearch();
+                }
+            });
+        });
+
+
+        function toggleHeaderSearch() {
+        if (!headerSearchIsOpen) {
+            drugInfoNav.style.opacity = '0';
+                setTimeout(() => {
+                    drugInfoNav.style.display = 'none';
+                    drugInfoSearchForm.style.display = 'inline';
+                    drugInfoSearchBar.style.display = 'inline';
+                    setTimeout(() => {
+                        drugInfoSearchForm.style.opacity = '1';
+                        drugInfoSearchBar.style.opacity = '1';
+                        drugInfoSearchBar.focus();
+                    }, 50);
+                }, 400);
+            headerSearchIsOpen = true;
+        } else {
+            drugInfoSearchBar.style.opacity = '0';
+            drugInfoSearchForm.style.opacity = '0';
+                setTimeout(() => {
+                    drugInfoSearchForm.style.display = 'none';
+                    drugInfoSearchBar.style.display = 'none';
+                    drugInfoNav.style.display = 'inline';
+                    setTimeout(() => {
+                        drugInfoNav.style.opacity = '1';
+                    }, 50);
+                }, 400);
+            headerSearchIsOpen = false;
+        }
+    }
+    
+    </script>
 
     <main>
