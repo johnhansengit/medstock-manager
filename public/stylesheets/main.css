@@ -861,6 +861,18 @@ td a:hover {
   cursor: pointer;
 }
 
+#order-table td:nth-child(1),
+#order-table td:nth-child(2),
+#order-table th:nth-child(1),
+#order-table th:nth-child(2) {
+  text-align: left;
+  padding-left: 10px;
+}
+
+#order-table td:last-child {
+  font-weight: 600;
+}
+
 #stock-form {
   display: flex;
   justify-content: center;
@@ -1101,4 +1113,13 @@ footer {
   background-color: var(--accent);
   margin: 20px -20px 0;
   padding: 0px 20px;
+}
+
+#order-intro {
+  margin: 100px 0 20px;
+}
+
+#order-intro h1 {
+  color: var(--darkmain);
+  margin-bottom: 0;
 }

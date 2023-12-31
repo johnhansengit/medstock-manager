@@ -99,6 +99,20 @@ td a:hover {
     cursor: pointer;
 }
 
+// ORDER TABLE
+
+#order-table td:nth-child(1),
+#order-table td:nth-child(2),
+#order-table th:nth-child(1),
+#order-table th:nth-child(2) {
+    text-align: left;
+    padding-left: 10px;
+}
+
+#order-table td:last-child {
+    font-weight: 600;
+}
+
 // OVERLAY TABLE
 
 #stock-form {

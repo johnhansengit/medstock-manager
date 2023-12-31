@@ -1,0 +1,49 @@
+<%- include('../partials/header') %>
+
+<div id="order-intro">
+
+    <h1>Order Needs</h1>
+    Consider ordering the following items. 
+
+</div>
+
+<% if (meditems.length > 0 && meditems.some(item => item.orderRec)) { %>
+    <table id="order-table">
+        <thead>
+            <tr>
+                <th>Generic Name</th>
+                <th>Dose/Form</th>
+                <th>Nearest Exp.</th>
+                <th>Par Level</th>
+                <th>Current Stock</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% meditems.forEach((item) => {
+                if (item.orderRec) { %>
+                    <tr>
+                        <td><%= item.genericName %></td>
+                        <td><%= item.dose %> <%= item.form %></td>
+                        <% if (!item.firstExp) { %>
+                            <td>--</td>
+                        <% } else { %>
+                            <td>
+                                <% let firstExpDate = new Date(item.firstExp); %>
+                                <%= firstExpDate.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' }) %>
+                            </td>
+                        <% } %>
+                        <td><%= item.parLevel %></td>
+                        <td><%= item.totalStock %></td>
+                    </tr>
+                <% } %>
+            <% }); %>
+        </tbody>
+    </table>
+    
+    <% } else { %>
+    
+    No order needs at this time!
+    
+    <% } %>
+
+<%- include('../partials/footer') %>

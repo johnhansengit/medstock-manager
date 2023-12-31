@@ -54,13 +54,19 @@ const meditemSchema = new Schema({
   toObject: { virtuals: true },
 });
 
-// VIRTUAL PROPERTY
+// VIRTUAL PROPERTIES
 meditemSchema.virtual('totalStock').get(function () {
     const today = new Date();
     return this.inStock
       .filter(stock => new Date(stock.expDate) >= today)
       .reduce((sum, stock) => sum + (stock.stock || 0), 0);
   });
+
+meditemSchema.virtual('orderRec').get(function () {
+    if (this.totalStock <= this.warningLevel) {
+        return true;
+    }
+});
     
 
 // MIDDLEWARE -- NOTE: only works when .save() is called, not .update() or findOneAndUpdate(), etc.)

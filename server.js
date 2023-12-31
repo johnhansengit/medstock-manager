@@ -15,6 +15,7 @@ const meditemsRouter = require('./routes/meditems');
 const stockRouter = require('./routes/stock');
 const inoutsRouter = require('./routes/inouts');
 const druginfoRouter = require('./routes/druginfo');
+const orderRouter = require('./routes/order');
 
 const app = express();
 
@@ -45,6 +46,7 @@ app.use('/current', meditemsRouter);
 app.use('/', stockRouter);
 app.use('/log', inoutsRouter);
 app.use('/druginfo', druginfoRouter);
+app.use('/order', orderRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
