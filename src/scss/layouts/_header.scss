@@ -6,7 +6,7 @@ header {
     width: 100%;
     height: 80px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
-    background-color: var(--main);
+    background-image: linear-gradient(to right, var(--main), var(--lightmain) 50%, var(--main));
     padding: 25px;
     display: flex;
     justify-content: space-between;
