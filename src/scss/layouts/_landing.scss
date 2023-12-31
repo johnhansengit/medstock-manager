@@ -1,7 +1,10 @@
 #landing-body {
     height: 100vh;
     margin: 0;
-    background-image: linear-gradient(to bottom, var(--lightmain), var(--main));
+    background-image: url("/images/background-image.jpg");
+    background-position: calc(50% + 150px) 50%;
+    background-repeat: no-repeat; 
+    background-size: auto; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,7 +47,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    // text-align: center;
 }
 
 #landing-footer {

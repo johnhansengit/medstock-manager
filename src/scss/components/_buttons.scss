@@ -95,19 +95,20 @@ button:hover {
 
 #login-btn {
     width: 32vmin;
-    background-color: var(--darkmain);
+    background-image: linear-gradient(to bottom right, var(--main), var(--darkmain));
     border: none;
     border-radius: 2vmin;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
     padding: 4vmin;
     color: var(--white);
     font-size: 4vmin;
     font-weight: 900;
-    transition: all 0.2s ease;
+    transition: background-image 0.3s ease;
     margin: 7vh 0 1vh;
 }
 
 #login-btn:hover {
-    background-color: var(--accent);
+    background-image: linear-gradient(to bottom right, var(--starfill), var(--accent));
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
     color: var(--darkmain);
 }

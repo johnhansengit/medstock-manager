@@ -23,7 +23,7 @@
 
 #overlay-top-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
     grid-template-areas:
         "star family close";
     align-items: center;
@@ -48,8 +48,13 @@
     color: var(--white);
 }
 
+#close-text {
+    transition: all 0.2s ease;
+}
+
 #close-text:hover {
     cursor: pointer;
+    color: var(--black);
 }
 
 #overlay-top-container img {
@@ -71,9 +76,37 @@
     gap: 5px;
 }
 
-#generic-name {   
+#generic-name {
     font-size: 35px;
     font-weight: 800;
+    color: var(--darkmain);
+}
+
+#generic-name a {
+    display: inline-block;
+    position: relative;
+}
+
+#generic-name a:hover {
+    color: var(--black);
+}
+
+#generic-name a:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: var(--black);
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+#generic-name a:hover:after {
+    width: 100%;
+    left: 0;
 }
 
 #dose-form {
@@ -99,7 +132,8 @@
 
 #notes {
     border: 1px solid var(--lightgrey);
-    border-radius: 5px;;
+    border-radius: 5px;
+    ;
     background-color: white;
     padding: 20px;
 }
@@ -147,14 +181,14 @@
     appearance: none;
     -webkit-appearance: none;
     background: url('/images/star-outline.svg') no-repeat center center;
-    width: 24px; 
-    height: 24px; 
+    width: 24px;
+    height: 24px;
 }
 
 #form-quickref-container input[type="checkbox"]:checked {
     background: url('/images/star-filled.svg') no-repeat center center;
-    width: 24px; 
-    height: 24px; 
+    width: 24px;
+    height: 24px;
 }
 
 #form-namefamily-container {
@@ -185,11 +219,11 @@
 }
 
 #form-doseform-container input:first-child {
-    flex: 1; 
+    flex: 1;
 }
 
 #form-doseform-container input:last-child {
-    flex: 2; 
+    flex: 2;
 }
 
 #form-unit-container {
@@ -284,5 +318,3 @@
 #note-input {
     width: 100%;
 }
-
-

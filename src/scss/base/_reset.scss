@@ -3,7 +3,8 @@
 }
 
 body {
-  background-color: var(--white);
+  background-image: radial-gradient(white, var(--lightgrey));
+  height: 100vh;
   margin: 25px;
   padding: 0;
 }

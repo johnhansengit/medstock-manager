@@ -84,7 +84,8 @@
 }
 
 body {
-  background-color: var(--white);
+  background-image: radial-gradient(white, var(--lightgrey));
+  height: 100vh;
   margin: 25px;
   padding: 0;
 }
@@ -233,19 +234,20 @@ button:hover {
 
 #login-btn {
   width: 32vmin;
-  background-color: var(--darkmain);
+  background-image: linear-gradient(to bottom right, var(--main), var(--darkmain));
   border: none;
   border-radius: 2vmin;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
   padding: 4vmin;
   color: var(--white);
   font-size: 4vmin;
   font-weight: 900;
-  transition: all 0.2s ease;
+  transition: background-image 0.3s ease;
   margin: 7vh 0 1vh;
 }
 
 #login-btn:hover {
-  background-color: var(--accent);
+  background-image: linear-gradient(to bottom right, var(--starfill), var(--accent));
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
   color: var(--darkmain);
 }
@@ -445,7 +447,7 @@ nav ul li a:active {
 
 #overlay-top-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
   grid-template-areas: "star family close";
   align-items: center;
   background-color: var(--darkmain);
@@ -469,8 +471,13 @@ nav ul li a:active {
   color: var(--white);
 }
 
+#close-text {
+  transition: all 0.2s ease;
+}
+
 #close-text:hover {
   cursor: pointer;
+  color: var(--black);
 }
 
 #overlay-top-container img {
@@ -495,6 +502,34 @@ nav ul li a:active {
 #generic-name {
   font-size: 35px;
   font-weight: 800;
+  color: var(--darkmain);
+}
+
+#generic-name a {
+  display: inline-block;
+  position: relative;
+}
+
+#generic-name a:hover {
+  color: var(--black);
+}
+
+#generic-name a:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: var(--black);
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+
+#generic-name a:hover:after {
+  width: 100%;
+  left: 0;
 }
 
 #dose-form {
@@ -732,7 +767,7 @@ th:last-child {
 }
 
 tr:hover {
-  background-color: var(--accent);
+  background-color: var(--lightgrey);
 }
 
 td a:hover {
@@ -895,7 +930,10 @@ footer {
 #landing-body {
   height: 100vh;
   margin: 0;
-  background-image: linear-gradient(to bottom, var(--lightmain), var(--main));
+  background-image: url("/images/background-image.jpg");
+  background-position: calc(50% + 150px) 50%;
+  background-repeat: no-repeat;
+  background-size: auto;
   display: flex;
   justify-content: center;
   align-items: center;
