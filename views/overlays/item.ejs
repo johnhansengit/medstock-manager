@@ -50,15 +50,17 @@
         <% if(meditem.inStock.length > 0) { %>
             <% meditem.inStock.forEach((stock)=> { %>
             <tr>
-                <td>
-                    <%= stock.lotNo %>
-                </td>
-
                 <% let today = new Date(), warningDate = new Date();
                 warningDate.setMonth(today.getMonth() + 1);
                 let stockExpDate = new Date(stock.expDate);
                 if (stockExpDate < today) { %>
-                    <td class="alert-stock">
+                    <td class="expired-stock"><%= stock.lotNo %></td>
+                <% } else { %>
+                    <td><%= stock.lotNo %></td>
+                <% } %>
+
+                <% if (stockExpDate < today) { %>
+                    <td class="expired-stock">
                 <% } else if (stockExpDate <= warningDate) { %>
                     <td class="warning-stock">
                 <% } else { %>
@@ -67,7 +69,9 @@
                 <%= stockExpDate.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' }) %></td>
                 </td>
 
-                <% if (stock.stock < meditem.parLevel) { %>
+                <% if (stockExpDate < today) { %>
+                    <td class="expired-stock"><%= stock.stock %></td>
+                <% } else if (stock.stock < meditem.parLevel) { %>
                             <td class="alert-stock"><%= stock.stock %></td>
                         <% } else if (stock.stock <= meditem.warningLevel) { %>
                             <td class="warning-stock"><%= stock.stock %></td>

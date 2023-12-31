@@ -55,8 +55,15 @@ const meditemSchema = new Schema({
 
 // MIDDLEWARE -- NOTE: only works when .save() is called, not .update() or findOneAndUpdate(), etc.)
 meditemSchema.pre('save', function (next) {
-    // Calculate meditem.totalStock
-    this.totalStock = this.inStock.reduce((sum, stock) => sum + (stock.stock || 0), 0);
+    // Calculate meditem.totalStock, excluding any expired items
+    this.totalStock = this.inStock
+        .filter(stock => {
+            const today = new Date();
+            const expirationDate = new Date(stock.expDate);
+            return expirationDate >= today;
+        })
+        .reduce((sum, stock) => sum + (stock.stock || 0), 0);
+
 
     // Calculate meditem.firstExp and meditem.lastExp
     if (this.inStock.length > 0) {

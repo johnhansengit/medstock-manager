@@ -43,6 +43,11 @@ td a:hover {
     background-color: var(--alert) !important;
 }
 
+.expired-stock {
+    text-decoration: line-through;
+    color: grey !important;
+}
+
 // CURRENT STOCK TABLE
 
 #current-stock-table tr td:nth-child(2),

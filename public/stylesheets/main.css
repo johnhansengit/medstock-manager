@@ -242,7 +242,6 @@ button:hover {
   color: var(--white);
   font-size: 4vmin;
   font-weight: 900;
-  transition: background-image 0.3s ease;
   margin: 7vh 0 1vh;
 }
 
@@ -808,6 +807,11 @@ td a:hover {
 
 .alert-stock {
   background-color: var(--alert) !important;
+}
+
+.expired-stock {
+  text-decoration: line-through;
+  color: grey !important;
 }
 
 #current-stock-table tr td:nth-child(2),
