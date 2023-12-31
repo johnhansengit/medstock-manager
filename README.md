@@ -44,6 +44,7 @@ Features include stock item search and filter, automatic logging of stock ins an
 #### **_Credits_**
 - Normalize CSS: [Normalize.css](https://cdnjs.com/libraries/normalize)
 - Fonts: [Google Fonts](fonts.google.com)
+- Landing page background image: [Free Stock photos by Vecteezy](https://www.vecteezy.com/free-photos)
 - Star icon: [IconPacks](https://iconpacks.net/?utm_source=link-attribution&utm_content=7203)
 - Filter icon: [SVGRepo](https://www.svgrepo.com/)
 - API: [OpenFDA](https://open.fda.gov/)

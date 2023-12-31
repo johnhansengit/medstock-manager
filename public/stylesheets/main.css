@@ -895,7 +895,7 @@ td a:hover {
 }
 
 footer {
-  position: absolute;
+  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -1050,4 +1050,23 @@ footer {
 #noaccess-footer {
   box-shadow: none;
   background-color: transparent;
+}
+
+#druginfo-header {
+  margin-top: 100px;
+}
+
+#druginfo-header p {
+  font-size: 1.75vmin;
+}
+
+#druginfo {
+  padding: 0 20px;
+}
+
+#druginfo h1 {
+  font-size: 6vmin;
+  background-color: var(--accent);
+  margin: 20px -20px 0;
+  padding: 0px 20px;
 }
