@@ -45,26 +45,27 @@ const meditemSchema = new Schema({
         default: false
     },
     inStock: [stockSchema],
-    totalStock: Number,
     firstExp: Date,
     lastExp: Date,
     notes: String,
 }, {
-    timestamps: true
+    timestamps: true,
+    toJSON: { virtuals: true },
+  toObject: { virtuals: true },
 });
+
+// VIRTUAL PROPERTY
+meditemSchema.virtual('totalStock').get(function () {
+    const today = new Date();
+    return this.inStock
+      .filter(stock => new Date(stock.expDate) >= today)
+      .reduce((sum, stock) => sum + (stock.stock || 0), 0);
+  });
+    
 
 // MIDDLEWARE -- NOTE: only works when .save() is called, not .update() or findOneAndUpdate(), etc.)
 meditemSchema.pre('save', function (next) {
-    // Calculate meditem.totalStock, excluding any expired items
-    this.totalStock = this.inStock
-        .filter(stock => {
-            const today = new Date();
-            const expirationDate = new Date(stock.expDate);
-            return expirationDate >= today;
-        })
-        .reduce((sum, stock) => sum + (stock.stock || 0), 0);
-
-
+    
     // Calculate meditem.firstExp and meditem.lastExp
     if (this.inStock.length > 0) {
         const sortedStock = this.inStock.slice().sort((a, b) => a.expDate - b.expDate);
@@ -80,6 +81,5 @@ meditemSchema.pre('save', function (next) {
 
     next();
 });
-
 
 module.exports = mongoose.model('Meditem', meditemSchema)
