@@ -24,41 +24,90 @@
 
     <div id="druginfo">
         <h1><%= query %></h1>
+        <div id="anchor-nav">
+           <ul>
+            <li><a href="#indications-and-use">Indications & Use</a></li>
+            <li><a href="#dosage-and-administration">Dosage & Administration</a></li>
+            <li><a href="#safety-and-precautions">Safety & Precautions</a></li>
+            <li><a href="#children-elderly-mothers">Children, Older Patients, Pregnancy & Breastfeeding</a></li>
+            <li><a href="#patient-information">Patient Information</a></li>
+            <li><a href="#storage-and-handling">Storage & Handling</a></li>
+           </ul>
+        </div>
+        
+        <a class="scroll-anchor" id="indications-and-use"></a>
         <h2>Indications & Use</h2>
-        <%- drugInfo.active_ingredient %>
-        <%- drugInfo.purpose %>
-        <%- drugInfo.indications_and_usage %>
+        <% if (drugInfo.active_ingredient || drugInfo.purpose || drugInfo.indications-and-use) { %>
+            <%- drugInfo.active_ingredient %>
+            <%- drugInfo.purpose %>
+            <%- drugInfo.indications_and_usage %>
+        <% } else { %>
+            <p>No information in database.</p>
+        <% } %>
         
+        <a class="scroll-anchor" id="dosage-and-administration"></a>
         <h2>Dosage & Administration</h2>
-        <%- drugInfo.dosage_and_administration %>
+        <% if (drugInfo.dosage_and_administration) { %>
+            <%- drugInfo.dosage_and_administration %>
+        <% } else { %>
+            <p>No information in database.</p>
+        <% } %>
 
+        <a class="scroll-anchor" id="safety-and-precautions"></a>
         <h2>Safety & Precautions</h2>
-        <%- drugInfo.boxed_warning %>
-        <%- drugInfo.warnings %>
-        <%- drugInfo.precautions %>
-        <%- drugInfo.do_not_use %>
-        <%- drugInfo.stop_use %>
-        <%- drugInfo.adverse_reactions %>
+        <% if (drugInfo.boxed_warning || drugInfo.warnings || drugInfo.precautions || drugInfo.do_not_use || drugInfo.stop_use || drugInfo.adverse_reactions) { %>
+            <%- drugInfo.boxed_warning %>
+            <%- drugInfo.warnings %>
+            <%- drugInfo.precautions %>
+            <%- drugInfo.do_not_use %>
+            <%- drugInfo.stop_use %>
+            <%- drugInfo.adverse_reactions %>
+        <% } else { %>
+            <p>No information in database.</p>
+        <% } %>
 
-        <h2>Children, Older Patients, Pregnancy and Breastfeeding</h2>
+        <a class="scroll-anchor" id="children-elderly-mothers"></a>
+        <h2>Children, Older Patients, Pregnancy & Breastfeeding</h2>
         <h3>Children</h3>
-        <%- drugInfo.pediatric_use %>
+            <% if (drugInfo.pediatric_use) { %>
+                <%- drugInfo.pediatric_use %>
+            <% } else { %>
+                <p>No information in database.</p>
+            <% } %>
         <h3>Older Patients</h3>
-        <%- drugInfo.geriatric_use %>
+        <% if (drugInfo.geriatric_use) { %>
+            <%- drugInfo.geriatric_use %>
+        <% } else { %>
+            <p>No information in database.</p>
+        <% } %>
         <h3>Pregnancy, Childbirth, & Breastfeeding</h3>
-        <%- drugInfo.pregnancy %>
-        <%- drugInfo.pregnancy_or_breast_feeding %>
-        <%- drugInfo.nursing_mothers %>
-        <%- drugInfo.labor_and_delivery %>
-        
-        <h2>Patient Information</h2>
-        <%- drugInfo.information_for_patients %>
-        <%- drugInfo.when_using %>
-        <%- drugInfo.ask_doctor %>
-        <%- drugInfo.ask_doctor_or_pharmacist %>
+        <% if (drugInfo.pregnancy || drugInfo.pregnancy_or_breast_feeding || drugInfo.nursing_mothers || drugInfo.labor_and_delivery) { %>
+            <%- drugInfo.pregnancy %>
+            <%- drugInfo.pregnancy_or_breast_feeding %>
+            <%- drugInfo.nursing_mothers %>
+            <%- drugInfo.labor_and_delivery %>
+        <% } else { %>
+            <p>No information in database.</p>
+        <% } %>
 
+        <a class="scroll-anchor" id="patient-information"></a>
+        <h2>Patient Information</h2>
+        <% if (drugInfo.information_for_patients || drugInfo.when_using || drugInfo.ask_doctor || drugInfo.ask_doctor_or_pharmacist) { %>
+            <%- drugInfo.information_for_patients %>
+            <%- drugInfo.when_using %>
+            <%- drugInfo.ask_doctor %>
+            <%- drugInfo.ask_doctor_or_pharmacist %>
+        <% } else { %>
+            <p>No information in database.</p>
+        <% } %>
+
+        <a class="scroll-anchor" id="storage-and-handling"></a>
         <h2>Storage & Handling</h2>
-        <%- drugInfo.storage_and_handling %>
+        <% if (drugInfo.storage_and_handling) { %>
+            <%- drugInfo.storage_and_handling %>
+        <% } else { %>
+            <p>No information in database.</p>
+        <% } %>
 
     </div>
 

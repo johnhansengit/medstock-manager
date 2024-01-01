@@ -21,7 +21,8 @@ const show = async (req, res) => {
             title: `Drug Info: ${query}`,
             query,
             drugInfo: formattedProperties,
-            meta: data.meta
+            meta: data.meta,
+            errorMsg: false
         });
     } catch (err) {
         console.log(err);
@@ -38,30 +39,8 @@ function formatData(property) {
         return '';
     }
 
-    return property.map(string => {
-        let segments = string.split(/(?<=\s)(?=[A-Z][a-z])/).map(seg => seg.trim()).filter(seg => seg.length > 0);
-
-        let htmlString = '';
-        segments.forEach(segment => {
-            let items = segment.split('•').map(item => item.trim()).filter(item => item.length > 0);
-
-            if (items.length > 0) {
-                let listHeader = items.shift();
-                htmlString += `<p>${listHeader}</p>`;
-
-                htmlString += '<ul>';
-                items.forEach(li => {
-                    htmlString += `<li>${li}</li>`;
-                });
-                htmlString += '</ul>';
-            }
-        });
-
-        return htmlString;
-    }).join('');
+    return property.map(string => `<p>${string}</p>`).join('');
 }
-
-
 
 
 module.exports = {

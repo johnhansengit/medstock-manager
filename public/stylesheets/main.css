@@ -1107,6 +1107,10 @@ footer {
   background-color: transparent;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 #error-container {
   margin-top: 100px;
 }
@@ -1133,6 +1137,59 @@ footer {
   margin: 20px -20px 0;
   padding: 0px 20px;
   border-radius: 5px;
+}
+
+#druginfo h2 {
+  margin: 0;
+}
+
+#anchor-nav {
+  background-color: var(--lightgrey);
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin: 5px -20px 0;
+}
+
+#anchor-nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#anchor-nav a {
+  display: inline-block;
+  position: relative;
+}
+
+#anchor-nav a:hover {
+  color: var(--darkmain);
+}
+
+#anchor-nav a:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 1px;
+  left: 50%;
+  position: absolute;
+  background: var(--darkmain);
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+
+#anchor-nav a:hover:after {
+  width: 100%;
+  left: 0;
+}
+
+.scroll-anchor {
+  display: inline-block;
+  margin-top: -100px;
+  padding-top: 100px;
 }
 
 #order-intro {
