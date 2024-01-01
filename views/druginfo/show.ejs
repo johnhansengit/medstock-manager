@@ -1,58 +1,67 @@
 <%- include('../partials/header') %>
 
-<div id="druginfo-header">
-    <h3>Disclaimers</h3>
-    <p>
-        This information is sourced automatically from <a href="https://open.fda.gov/" target="_blank">openFDA</a>, an API (Application Program Interface) connecting users to a database of drug and medical device information maintained by the Food and Drug Administration (FDA). The information below is based on the first, closest match between the generic name of the drug queried and the many drugs in this database. It may not be an exact match of the drug you have in stock.
-    </p>
-    <p>
-        <%= meta.disclaimer %>
-    </p>
-    <p>
-        The openFDA database was last updated <strong><%= meta.last_updated %></strong>.
-    </p>
-</div>
+<% if (errorMsg) { %>
+    <div id="error-container">
+        <h1>Item not found</h1>
+        <%= errorMsg %>
+    </div>
+<% } else { %>
 
-<hr>
+    <div id="druginfo-header">
+        <h3>Disclaimers</h3>
+        <p>
+            This information is sourced automatically from <a href="https://open.fda.gov/" target="_blank">openFDA</a>, an API (Application Program Interface) connecting users to a database of drug and medical device information maintained by the Food and Drug Administration (FDA). The information below is based on the first, closest match between the generic name of the drug queried and the many drugs in this database. It may not be an exact match of the drug you have in stock.
+        </p>
+        <p>
+            <%= meta.disclaimer %>
+        </p>
+        <p>
+            The openFDA database was last updated <strong><%= meta.last_updated %></strong>.
+        </p>
+    </div>
 
-<div id="druginfo">
-    <h1><%= query %></h1>
-    <h2>Indications & Use</h2>
-    <%- drugInfo.active_ingredient %>
-    <%- drugInfo.purpose %>
-    <%- drugInfo.indications_and_usage %>
-    
-    <h2>Dosage & Administration</h2>
-    <%- drugInfo.dosage_and_administration %>
+    <hr>
 
-    <h2>Safety & Precautions</h2>
-    <%- drugInfo.boxed_warning %>
-    <%- drugInfo.warnings %>
-    <%- drugInfo.precautions %>
-    <%- drugInfo.do_not_use %>
-    <%- drugInfo.stop_use %>
-    <%- drugInfo.adverse_reactions %>
+    <div id="druginfo">
+        <h1><%= query %></h1>
+        <h2>Indications & Use</h2>
+        <%- drugInfo.active_ingredient %>
+        <%- drugInfo.purpose %>
+        <%- drugInfo.indications_and_usage %>
+        
+        <h2>Dosage & Administration</h2>
+        <%- drugInfo.dosage_and_administration %>
 
-    <h2>Children, Older Patients, Pregnancy and Breastfeeding</h2>
-    <h3>Children</h3>
-    <%- drugInfo.pediatric_use %>
-    <h3>Older Patients</h3>
-    <%- drugInfo.geriatric_use %>
-    <h3>Pregnancy, Childbirth, & Breastfeeding</h3>
-    <%- drugInfo.pregnancy %>
-    <%- drugInfo.pregnancy_or_breast_feeding %>
-    <%- drugInfo.nursing_mothers %>
-    <%- drugInfo.labor_and_delivery %>
-    
-    <h2>Patient Information</h2>
-    <%- drugInfo.information_for_patients %>
-    <%- drugInfo.when_using %>
-    <%- drugInfo.ask_doctor %>
-    <%- drugInfo.ask_doctor_or_pharmacist %>
+        <h2>Safety & Precautions</h2>
+        <%- drugInfo.boxed_warning %>
+        <%- drugInfo.warnings %>
+        <%- drugInfo.precautions %>
+        <%- drugInfo.do_not_use %>
+        <%- drugInfo.stop_use %>
+        <%- drugInfo.adverse_reactions %>
 
-    <h2>Storage & Handling</h2>
-    <%- drugInfo.storage_and_handling %>
+        <h2>Children, Older Patients, Pregnancy and Breastfeeding</h2>
+        <h3>Children</h3>
+        <%- drugInfo.pediatric_use %>
+        <h3>Older Patients</h3>
+        <%- drugInfo.geriatric_use %>
+        <h3>Pregnancy, Childbirth, & Breastfeeding</h3>
+        <%- drugInfo.pregnancy %>
+        <%- drugInfo.pregnancy_or_breast_feeding %>
+        <%- drugInfo.nursing_mothers %>
+        <%- drugInfo.labor_and_delivery %>
+        
+        <h2>Patient Information</h2>
+        <%- drugInfo.information_for_patients %>
+        <%- drugInfo.when_using %>
+        <%- drugInfo.ask_doctor %>
+        <%- drugInfo.ask_doctor_or_pharmacist %>
 
-</div>
+        <h2>Storage & Handling</h2>
+        <%- drugInfo.storage_and_handling %>
+
+    </div>
+
+<% } %>
 
 <%- include('../partials/footer') %>

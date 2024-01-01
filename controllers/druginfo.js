@@ -7,7 +7,7 @@ const DOMAIN = 'https://api.fda.gov/drug/label.json?'
 const show = async (req, res) => {
     try {
         const query = req.params.drugName;
-        const response = await axios.get(`${DOMAIN}api_key=${API_KEY}&search=${query}`);
+        const response = await axios.get(`${DOMAIN}api_key=${API_KEY}&search=openfda.generic_name:"${query}"`);
         const data = response.data;
 
         const formattedProperties = Object.keys(data.results[0]).reduce((acc, prop) => {
@@ -26,8 +26,8 @@ const show = async (req, res) => {
     } catch (err) {
         console.log(err);
         res.render('druginfo/show', {
-            title: 'Drug Info',
-            errorMsg: err.message
+            title: 'Drug Info: Item Not Found',
+            errorMsg: 'Sorry, there is no match for that item in the database.'
         });
     }
 };

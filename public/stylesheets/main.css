@@ -946,7 +946,7 @@ footer {
   height: auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: ". copyright user-options";
+  grid-template-areas: "user-info copyright user-options";
   box-shadow: 0 -4px 8px 0 rgba(0, 0, 0, 0.5);
   background-image: linear-gradient(to right, var(--main), var(--lightmain) 50%, var(--main));
   padding: 15px;
@@ -954,6 +954,13 @@ footer {
   text-align: center;
   font-size: 11px;
   color: var(--black);
+}
+
+#logged-in-as {
+  grid-area: user-info;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 50px;
 }
 
 #copyright {
@@ -969,6 +976,10 @@ footer {
 
 #user-options a {
   margin-left: 2vw;
+}
+
+#user-logged-in {
+  font-weight: 600;
 }
 
 #landing-body {
@@ -1094,6 +1105,10 @@ footer {
 #noaccess-footer {
   box-shadow: none;
   background-color: transparent;
+}
+
+#error-container {
+  margin-top: 100px;
 }
 
 #druginfo-header {
