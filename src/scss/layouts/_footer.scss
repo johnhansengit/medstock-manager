@@ -21,7 +21,9 @@ footer {
     grid-area: user-info;
     display: flex;
     justify-content: flex-start;
+    gap: 5px;
     margin-left: 50px;
+    color: var(--darkmain);
   }
 
   #copyright {
