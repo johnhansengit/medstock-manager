@@ -42,8 +42,7 @@
                 <th>Lot No.</th>
                 <th>Exp. Date</th>
                 <th>Current Stock</th>
-                <th>+/- Stock</th>
-                <th>Delete Row</th>
+                <th></th>
             </tr>
         </thead>
     <tbody>
@@ -79,29 +78,27 @@
                             <td><%= stock.stock %></td>
                             <% } %>
                 <td>
-                    <button onclick="addStock('<%= stock._id %>', '<%= meditem._id %>')"
-                        class="stock-btn">+</button>
                     <button onclick="depleteStock('<%= stock._id %>', '<%= meditem._id %>')"
                         class="stock-btn">-</button>
                 </td>
-                <td><button id="quick-delete-btn" type="button" onclick="quickDelete('<%= stock._id %>', '<%= meditem._id %>')">Delete</button></td>
             </tr>
             <% }) %>
         <% } else { %>
             <tr>
-                <td colspan="5" id="nothing-in-stock">Nothing in stock. Add stock below.</td>
+                <td colspan="3" id="nothing-in-stock">Nothing in stock. Add stock below.</td>
             </tr>
         <% } %>
             <tr>
                 <td><input type="text" name="lotNo" placeholder="New lot no."></td>
                 <td><input type="date" name="expDate" value="<%= futureDate %>"></td>
                 <td><input type="text" name="stock" placeholder="New stock quantity" required></td>
-                <td colspan="2"><button type="submit" id="add-stock-item-btn">Add New Stock</button></td>
+                <td><button type="submit" class="stock-btn">+</button></td>
             </tr>
             <tr>
                 <td></td>
                 <td>TOTAL STOCK</td>
                 <td><%= meditem.totalStock %></td>
+                <td></td>
             </tr>
         </tbody>
     </table>
