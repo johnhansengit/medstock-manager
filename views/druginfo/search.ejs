@@ -12,7 +12,7 @@
 
 </head>
 
-<body>
+<body id="druginfo-body">
     <header id="header">
 
         <nav id="left-nav">
@@ -35,4 +35,25 @@
 
     </header>
 
-    <main>
+    <main id="druginfo-main">
+
+        <h1>Search the FDA Drug Information Database</h1>
+        <form id="druginfo-form-container" action="/druginfo/search" method="GET">
+            <input type="search" name="drugName" id="druginfo-searchbar" placeholder="Search...">
+            <button id="druginfo-btn">Search</button>
+        </div>
+
+        <script>
+            document.getElementById('druginfo-searchbar').focus()
+
+            const drugInfoBtn = document.getElementById('druginfo-btn')
+            const searchBar = document.getElementById('druginfo-searchbar')
+            drugInfoBtn.addEventListener('click', () => {
+                event.preventDefault();
+                let drugName = searchBar.value
+                window.location.href=`/druginfo/${drugName}`
+            })
+
+        </script>
+    
+<%- include('../partials/footer') %>

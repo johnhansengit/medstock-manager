@@ -3,6 +3,9 @@ const axios = require('axios')
 const API_KEY = process.env.API_KEY
 const DOMAIN = 'https://api.fda.gov/drug/label.json?'
 
+const search = (req,res) => {
+    res.render('druginfo/search', { title: 'Search Drug Info' })
+}
 
 const show = async (req, res) => {
     try {
@@ -44,5 +47,6 @@ function formatData(property) {
 
 
 module.exports = {
-    show
+    show,
+    search
 }

@@ -83,6 +83,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-image: radial-gradient(white, var(--lightgrey));
   height: 100vh;
@@ -396,33 +400,6 @@ nav ul li a:hover {
 nav ul li a:active {
   background-color: var(--white);
   color: var(--darkmain);
-}
-
-#druginfo-nav {
-  display: inline;
-  opacity: 1;
-  transition: all 0.4s ease;
-}
-
-#druginfo-nav:hover {
-  cursor: pointer;
-}
-
-#druginfo-searchform {
-  display: none;
-  opacity: 0;
-  border: 10px solid var(--accent);
-  border-radius: 10px;
-  transition: all 0.4s ease;
-}
-
-#druginfo-searchbar {
-  display: none;
-  opacity: 0;
-  border-radius: 5px;
-  border: 1px solid var(--lightgrey);
-  padding: 5px;
-  transition: all 0.4s ease;
 }
 
 #subheader {
@@ -1151,8 +1128,72 @@ footer {
   background-color: transparent;
 }
 
-html {
-  scroll-behavior: smooth;
+#druginfo-body {
+  height: 100vh;
+  margin: 0;
+  background-image: linear-gradient(to bottom, var(--lightmain), var(--main));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#druginfo-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#druginfo-form-container {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+
+#druginfo-main h1 {
+  font-size: 4vmin;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+#druginfo-searchbar {
+  background-color: var(--white);
+  border: 1px solid var(--lightgrey);
+  border-radius: 10px;
+  width: 100%;
+  height: 50px;
+  font-size: 3vmin;
+  padding-left: 10px;
+  color: var(--darkgrey);
+}
+
+#druginfo-btn {
+  width: 24vmin;
+  background-color: var(--darkmain);
+  border: none;
+  border-radius: 2vmin;
+  padding: 2vmin;
+  color: var(--white);
+  font-size: 3vmin;
+  font-weight: 900;
+  transition: all 0.2s ease;
+}
+
+#druginfo-btn:hover {
+  background-image: none;
+  background-color: var(--accent);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  color: var(--darkmain);
+}
+
+#druginfo-btn:active {
+  background-color: var(--white);
+  box-shadow: none;
+  color: var(--darkmain);
 }
 
 #error-container {

@@ -1,6 +1,74 @@
-html {
-    scroll-behavior: smooth;
+// SEARCH FORM
+
+#druginfo-body {
+    height: 100vh;
+    margin: 0;
+    background-image: linear-gradient(to bottom, var(--lightmain), var(--main));
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+#druginfo-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#druginfo-form-container {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
+#druginfo-main h1 {
+    font-size: 4vmin;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--white);
+}
+
+#druginfo-searchbar {
+    background-color: var(--white);
+    border: 1px solid var(--lightgrey);
+    border-radius: 10px;
+    width: 100%;
+    height: 50px;
+    font-size: 3vmin;
+    padding-left: 10px;
+    color: var(--darkgrey);
+}
+
+#druginfo-btn {
+    width: 24vmin;
+    background-color: var(--darkmain);
+    border: none;
+    border-radius: 2vmin;
+    padding: 2vmin;
+    color: var(--white);
+    font-size: 3vmin;
+    font-weight: 900;
+    transition: all 0.2s ease;
+}
+
+#druginfo-btn:hover {
+    background-image: none;
+    background-color: var(--accent);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+    color: var(--darkmain);
+}
+
+#druginfo-btn:active{
+    background-color: var(--white);
+    box-shadow: none;
+    color: var(--darkmain);
+}
+
+// SEARCH RESULTS
 
 #error-container {
     margin-top: 100px;
