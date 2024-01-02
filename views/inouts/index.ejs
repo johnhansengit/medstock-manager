@@ -28,11 +28,11 @@
                     <td><%= inout.meditem.genericName %></td>
                     <td><%= inout.meditem.dose %> <%= inout.meditem.form %></td>
                     <td><% if (inout.addition) { %>
-                        <%= inout.inout %>
+                        + <%= inout.inout %>
                         <% } %>
                     </td>
                     <td><% if (inout.depletion) { %>
-                        <%= inout.inout %>
+                        - <%= inout.inout %>
                         <% } %>
                     </td>
                     <td><% if (inout.depletion) { %>

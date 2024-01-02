@@ -15,8 +15,7 @@ const stockSchema = new Schema({
     },
     stock: {
         type: Number,
-        min: 0,
-        required: true
+        min: 0
     },
 }, {
     timestamps: true

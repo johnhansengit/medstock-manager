@@ -105,6 +105,16 @@ td a:hover {
     cursor: pointer;
 }
 
+#inout-table tr td:nth-child(5) {
+    color: var(--6);
+    font-weight: 600;
+}
+
+#inout-table tr td:nth-child(6) {
+    color: var(--1);
+    font-weight: 600;
+}
+
 // ORDER TABLE
 
 #order-table td:nth-child(1),
