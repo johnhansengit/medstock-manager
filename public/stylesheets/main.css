@@ -90,7 +90,7 @@ html {
 body {
   background-image: radial-gradient(white, var(--lightgrey));
   height: 100vh;
-  margin: 25px;
+  margin: 25px 25px 300px 25px;
   padding: 0;
 }
 
