@@ -5,10 +5,20 @@
 <table id="current-stock-table">
     <thead>
         <tr>
-            <th><img src="/images/star-outline.svg" alt="" class="star-toggle" id="star-table"></th>
+            <th>
+                <form id="star-toggle-form" action="/current" method="GET">
+                    <% if (starChecked) { %>
+                        <input type="checkbox" id="star-toggle-btn" name="quickRefFilter" checked>
+                    <% } else { %>
+                        <input type="checkbox" id="star-toggle-btn" name="quickRefFilter">
+                    <% } %>
+                </form>
+
+                <!-- <img src="/images/star-outline.svg" alt="" class="star-toggle" id="star-table"> -->
+            </th>
             <th>Generic Name</th>
             <th>Dose/Form</th>
-            <th>Family <img src="/images/filter.svg" alt="" id="filter-icon"></th>
+            <th>Family</th>
             <th>Nearest Exp.</th>
             <th>Par Level</th>
             <th>Current Stock</th>
@@ -95,55 +105,76 @@ Sorry, there don't appear to be any items in the system. Click the (+) button at
     });
 });
 
-// Close overlay
-document.body.addEventListener('click', function(event) {
-    if (event.target.id === 'close-text') {
-        overlay.style.opacity = '0';
-        setTimeout(() => {
-            overlay.style.display = 'none';
-            overlay.innerHTML = '';
-        }, 300);
+    // Close overlay
+    document.body.addEventListener('click', function(event) {
+        if (event.target.id === 'close-text') {
+            overlay.style.opacity = '0';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                overlay.innerHTML = '';
+            }, 300);
+        }
+    });
+
+    // Open edit overlay
+    function edit(meditemId) {
+        fetch(`/current/${meditemId}/edit`)
+                    .then(response => response.text())
+                    .then(html => {
+                        overlay.innerHTML = html;
+                    })
+                    .catch(err => console.error(err));         
     }
-});
 
-// Open edit overlay
-function edit(meditemId) {
-    fetch(`/current/${meditemId}/edit`)
-                .then(response => response.text())
-                .then(html => {
-                    overlay.innerHTML = html;
+    // Confirm delete
+    function confirmDelete(meditemId) {
+        if (confirm('Are you sure you want to delete this item?')) {
+            fetch(`/current/${meditemId}`, { method: 'DELETE' })
+                .then(response => {
+                    if (response.ok) {
+                        window.location.href = '/current';
+                    } else {
+                        alert('An error occurred while deleting the item.');
+                    }
                 })
-                .catch(err => console.error(err));         
-}
-
-// Confirm delete
-function confirmDelete(meditemId) {
-    if (confirm('Are you sure you want to delete this item?')) {
-        fetch(`/current/${meditemId}`, { method: 'DELETE' })
-            .then(response => {
-                if (response.ok) {
-                    window.location.href = '/current';
-                } else {
-                    alert('An error occurred while deleting the item.');
-                }
-            })
-            .catch(err => {
-                console.log(err);
-            });
+                .catch(err => {
+                    console.log(err);
+                });
+        }
     }
-}
 
-// Open deplete overlay
-function depleteStock(stockId, meditemId) {
-    fetch(`/log/${meditemId}/stock/${stockId}/deplete`)
-        .then(response => response.text())
-        .then(html => {
-            overlay.innerHTML = html;
-            overlay.style.display = 'flex'; 
-                setTimeout(() => overlay.style.opacity = '1', 10); 
-                })
-        .catch(err => console.error(err));
-}
+    // Open deplete overlay
+    function depleteStock(stockId, meditemId) {
+        fetch(`/log/${meditemId}/stock/${stockId}/deplete`)
+            .then(response => response.text())
+            .then(html => {
+                overlay.innerHTML = html;
+                overlay.style.display = 'flex'; 
+                    setTimeout(() => overlay.style.opacity = '1', 10); 
+                    })
+            .catch(err => console.error(err));
+    }
+    
+    // QuickRef filter
+    let quickRefFilterIsChecked = false;
+    const starToggleForm = document.getElementById('star-toggle-form');
+    const starToggleBtn = document.getElementById('star-toggle-btn');
+    starToggleBtn.addEventListener('change', toggleStarFilter)
+
+    function toggleStarFilter() {
+        if (!quickRefFilterIsChecked) {
+            setTimeout(() => {
+                quickRefFilterIsChecked = true
+                starToggleForm.submit();
+            }, 10);
+        } else {
+            setTimeout(() => {
+                quickRefFilterIsChecked = false
+                starToggleForm.submit();
+            }, 10);
+        }
+    }
+
 
 </script>
 

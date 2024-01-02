@@ -3,11 +3,34 @@ const { families } = require('../config/constants')
 
 const index = async (req, res) => {
     try {
-        let meditems = await Meditem.find({}).sort('genericName')
+        let meditems
+        let starChecked
+        if (req.query.search) {
+            let search = req.query.search;
+            let query = { $or: [] };
+            const fields = ['genericName', 'family', 'dose', 'form']
+
+            fields.forEach(field => {
+                query.$or.push({ [field]: { $regex: search, $options: 'i' } });
+            })
+            meditems = await Meditem.find(query).sort('genericName')
+        } else if (req.query.quickRefFilter) {
+            let quickRefIsTrue = req.query.quickRefFilter
+            if (quickRefIsTrue === 'on') {
+                meditems = await Meditem.find({ quickRef: true }).sort('genericName')
+                starChecked = true;
+            } else {
+                meditems = await Meditem.find({}).sort('genericName')
+                starChecked = false;
+            }
+        } else {
+            meditems = await Meditem.find({}).sort('genericName')
+        }
         res.render('meditems/index', {
             title: 'Current Stock',
             meditems,
-            families
+            families,
+            starChecked
         })
     } catch (err) {
         console.log(err)

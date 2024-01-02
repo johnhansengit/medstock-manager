@@ -191,6 +191,26 @@
     height: 24px;
 }
 
+#star-toggle-form input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    background: url('/images/star-outline.svg') no-repeat center center;
+    width: 20px;
+    height: 20px;
+    transform: translate(0, 2px);
+}
+
+#star-toggle-form input[type="checkbox"]:checked {
+    background: url('/images/star-filled.svg') no-repeat center center;
+    width: 20px;
+    height: 20px;
+    transform: translate(0, 2px);
+}
+
+#star-toggle-form input[type="checkbox"]:hover {
+    cursor: pointer;
+}
+
 #form-namefamily-container {
     display: flex;
     flex-direction: row;
