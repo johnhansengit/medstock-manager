@@ -154,12 +154,6 @@ td a:hover {
     border: none;
 }
 
-// #overlay-table tr:hover td:nth-child(4),
-// #overlay-table tr:hover td:nth-child(5),
-// #overlay-table tr:hover td:nth-child(6) {
-//     background-color: transparent;
-// }
-
 #overlay-table tr:hover {
     background-color: transparent;
 }
@@ -178,12 +172,7 @@ td a:hover {
 #overlay-table tr:nth-last-child(2) td:last-child,
 #overlay-table th:last-child {
     background-color: var(--white);
-    // text-align: left;
 }
-
-// #overlay-table tr:nth-last-child(2) td:nth-child(4) {
-//     border: none;
-// }
 
 #overlay-table td:nth-child(4) {
     border: none;

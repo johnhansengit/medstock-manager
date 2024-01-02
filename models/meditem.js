@@ -4,15 +4,7 @@ const { families } = require('../config/constants')
 
 const stockSchema = new Schema({
     lotNo: String,
-    expDate: {
-        type: Date,
-        validate: {
-            validator: function(value) {
-                return value >= new Date();
-            },
-            message: 'Expiration date cannot be in the past.'
-        }
-    },
+    expDate: Date,
     stock: {
         type: Number,
         min: 0

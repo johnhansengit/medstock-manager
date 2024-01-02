@@ -106,21 +106,6 @@ document.body.addEventListener('click', function(event) {
     }
 });
 
-// Call when stock = 0
-function quickDelete(stockId, meditemId) {
-        fetch(`/current/${meditemId}/stock/${stockId}`, { method: 'DELETE' })
-            .then(response => {
-                if (response.ok) {
-                    window.location.reload();
-                } else {
-                    alert('An error occurred while deleting the stock.');
-                }
-            })
-            .catch(err => {
-                console.error('Error:', err);
-            });
-}
-
 // Open edit overlay
 function edit(meditemId) {
     fetch(`/current/${meditemId}/edit`)
@@ -148,17 +133,6 @@ function confirmDelete(meditemId) {
     }
 }
 
-// function addStock(stockId, meditemId) {
-//     fetch(`/log/${meditemId}/stock/${stockId}/add`)
-//         .then(response => response.text())
-//         .then(html => {
-//             overlay.innerHTML = html;
-//             overlay.style.display = 'flex'; 
-//                 setTimeout(() => overlay.style.opacity = '1', 10); 
-//                 })
-//         .catch(err => console.error(err));
-// }
-
 // Open deplete overlay
 function depleteStock(stockId, meditemId) {
     fetch(`/log/${meditemId}/stock/${stockId}/deplete`)
@@ -170,59 +144,6 @@ function depleteStock(stockId, meditemId) {
                 })
         .catch(err => console.error(err));
 }
-
-// Handle add stock
-// function addStock(meditemId) {
-//     event.preventDefault();
-    
-//     let stockForm = document.getElementById('stock-form');
-//     let formData = new FormData(stockForm);
-//     let formDataStock = new FormData();
-//     let formDataInout = new FormData();
-
-//     for (let [key, value] of formData.entries()) {
-//         if (key !== 'stock') {
-//             formDataStock.append(key, value);
-//         } else {
-//             formDataInout.append('inout', value);
-//         }
-//     }
-
-//     fetch(`/current/${meditemId}/stock`, {
-//         method: 'POST',
-//         body: formDataStock,
-//         headers: {
-//             'Content-Type': 'multipart/form-data'
-//         }
-//     })
-//     .then(response => {
-//         if (response.ok) {
-//             return response.json()
-//         } else {
-//             throw new Error('Network response was not ok')
-//         }
-//     })
-//     .then(data => {
-//         let stockId = data.stock._id
-
-//         fetch(`/log/${meditemId}/stock/${stockId}`, {
-//             method: 'POST',
-//             body: formDataInout,
-//             headers: {
-//                 'Content-Type': 'multipart/form-data'
-//             }
-//         })
-//         .then(response => {
-//             if (response.ok) {
-//                 // window.location.href = '/current';
-//                 console.log('Success')
-//             } else {
-//                 throw new Error('Something went wrong with the second request');
-//             }
-//         })
-//     })
-//     .catch(err => console.log('Fetch error: ', err))
-// }
 
 </script>
 

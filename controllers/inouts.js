@@ -1,7 +1,7 @@
 const Inout = require('../models/inout')
 const Meditem = require('../models/meditem')
 const { depletions } = require('../config/constants')
-
+const { families } = require('../config/constants')
 
 const index = async (req, res) => {
   
@@ -22,17 +22,6 @@ const index = async (req, res) => {
           errorMsg: err.message
       });
   }
-}
-
-const addStock = async (req, res) => {
-
-  const meditem = await Meditem.findById(req.params.id);
-  const stock = meditem.inStock.id(req.params.stockId);
-
-  res.render('overlays/add-stock', {
-    meditem,
-    stock,
-  });
 }
 
 const depleteStock = async (req, res) => {
@@ -56,21 +45,19 @@ const create = async (req, res) => {
     req.body.user = req.user._id;
     req.body.meditem = meditem;
     
-    if (req.body.depletion) {
-      const depletedStock = parseInt(req.body.inout, 10);
-      stock.stock -= depletedStock;
-    } else {
-      const addedStock = parseInt(req.body.inout, 10);
-      stock.stock += addedStock;
-      req.body.addition = 'Received';
-    }
-
-    
+    const depletedStock = parseInt(req.body.inout, 10);
+    stock.stock -= depletedStock;
+        
     await stock.save();
     await meditem.save();
     
     req.body.updatedStock = meditem.totalStock;
     await Inout.create(req.body)
+
+    if (stock.stock === 0) {
+      meditem.inStock = meditem.inStock.filter(eachStock => eachStock._id.toString() !== stock._id.toString());
+      await meditem.save();
+    }
 
     res.redirect('/current')
   } catch (err) {
@@ -79,15 +66,14 @@ const create = async (req, res) => {
       res.render('meditems/index', {
         title: 'Current Stock',
         meditems,
+        families,
         errorMsg: err.message
     });
   }
 }
 
-
 module.exports = {
   index,
-  addStock,
   depleteStock,
   create
 }

@@ -102,33 +102,6 @@ const update = async (req, res) => {
     }
 }
 
-const search = async (req, res) => {
-    console.log('Search controller activated')
-    // try {
-    //     console.log('Search controller tried')
-    //     const searchQuery = req.query.search
-    //     console.log(`searchQuery is ${searchQuery}`)
-
-    //     let meditems = await Meditem.find({ "genericName": searchQuery });
-    //     console.log(`meditems is ${meditems}`)
-
-    //     res.render('meditems/index', {
-    //         title: `Search Results: ${searchQuery}`,
-    //         meditems,
-    //         families
-    //     });
-    // } catch (err) {
-    //     console.log(err)
-    //     let meditems = await Meditem.find({}).sort('genericName')
-    //     res.render('meditems/index', {
-    //         title: 'Current Stock',
-    //         meditems,
-    //         families,
-    //         errorMsg: "Item not found"
-    //     });
-    // }
-}
-
 module.exports = {
     index,
     show,
@@ -136,6 +109,5 @@ module.exports = {
     create,
     delete: deleteItem,
     edit,
-    update,
-    search
+    update
 }
