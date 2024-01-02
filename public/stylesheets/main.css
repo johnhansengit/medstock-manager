@@ -1275,11 +1275,17 @@ footer {
   padding-top: 100px;
 }
 
-#order-intro {
-  margin: 100px 0 20px;
+#order-intro,
+#inout-intro {
+  margin: 100px 0 0;
 }
 
-#order-intro h1 {
+.order-needs-text {
+  margin-bottom: 20px;
+}
+
+#order-intro h1,
+#inout-intro h1 {
   color: var(--darkmain);
   margin-bottom: 0;
 }

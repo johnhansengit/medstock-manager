@@ -3,11 +3,14 @@
 <div id="order-intro">
 
     <h1>Order Needs</h1>
-    Consider ordering the following items. 
-
+    
 </div>
 
 <% if (meditems.length > 0 && meditems.some(item => item.orderRec)) { %>
+    <div class="order-needs-text">
+        Consider ordering the following items.
+    </div>
+
     <table id="order-table">
         <thead>
             <tr>
@@ -42,7 +45,11 @@
     
     <% } else { %>
     
-    No order needs at this time!
+    <div class="order-needs-text">
+        <br>
+        No order needs at this time!
+    
+    </div>
     
     <% } %>
 

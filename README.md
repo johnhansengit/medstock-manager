@@ -6,7 +6,17 @@
 #### **_Description_**
 MedStock Manager is a full-stack pharmacy stock management app built on the MEN stack (MongoDB, Express, Node), with Google OAuth for secure user authentication and third-party API integration. 
 
-Features include stock item search and filter, automatic logging of stock ins and outs, automated alerts when stock is low or about to explire, order needs prediction, and extensive drug info (indications, contraindications, interractions, etc.) pulled from the DrugBank database and linked to stock items.
+Features include:
+
+- Only authorized users are able to sign in
+- Current user is displayed at bottom-left of screen, so that if someone leaves themselves logged on by accident, the next user will not mistake the dataset for their own
+- Drug stock is automatically grouped by family
+- Drug stock is searchable by any keyword (e.g., name, family, dose, form), and filterable by whether the item has been starred for 'quick refererence'
+- Expiration dates turn yellow when less than one month away, and pink when expired; expired stock is not counted towards total stock
+- When the stock for a particular lot number is zeroed out, it is automatically deleted
+- All ins and outs are recorded in the Ins/Outs log
+- The Order page automatically compiles a list of drugs that are below the par alert level (120% of par level), and should therefore be considered for ordering
+- On the drug item overlay view, the drug name can be clicked to search it in the FDA's API of drug information; alternatively, the API can be searched for any drug via the Drug Info page
 
 #### **_Technologies_**
 - HTML
@@ -36,10 +46,12 @@ Features include stock item search and filter, automatic logging of stock ins an
 
 #### **_Planned Future Updates_**
 - [ ] Integrate with ordering system, or else generate populated order form in pdf format
-- [ ] Native user authentication
-- [ ] Mobile sister app with limited features (i.e., what's needed for point-of-care and stock room)
+- [ ] Native user authentication and user sign-up process
+- [ ] Responsive/mobile desisgn
 - [ ] Sandbox mode, for non-users to see the app in action
-- [ ] Chose your own color scheme
+- [ ] Add family functionality
+- [ ] Tracking of Average Monthly Consumption (AMC), yielding longer term prediction of order needs, and recommendations for order quantities
+- [ ] Searchable Ins/Outs
 
 #### **_Credits_**
 - Normalize CSS: [Normalize.css](https://cdnjs.com/libraries/normalize)
