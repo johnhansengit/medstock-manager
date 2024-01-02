@@ -1128,16 +1128,14 @@ footer {
   background-color: transparent;
 }
 
-#druginfo-body {
+#druginfo-main {
+  position: absolute;
+  top: 0;
+  left: 0;
   height: 100vh;
+  width: 100vw;
   margin: 0;
   background-image: linear-gradient(to bottom, var(--lightmain), var(--main));
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#druginfo-main {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1149,7 +1147,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 50%;
   gap: 10px;
 }
 
