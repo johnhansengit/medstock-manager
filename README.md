@@ -1,4 +1,4 @@
-# MedStock Manager
+# MedStock Manager ([live on Heroku](https://medstock-manager-9ef045b5bcdf.herokuapp.com/))
 ## Date: 12/16/2023
 ### By: John Hansen
 **[GitHub](https://github.com/johnhansengit) | [LinkedIn](https://www.linkedin.com/in/jhansen-software-engineer/)**
