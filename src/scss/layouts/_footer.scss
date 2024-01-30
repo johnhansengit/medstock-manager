@@ -1,45 +1,44 @@
 footer {
-    position: fixed;
-    left: 0;
-    bottom: 0; 
-    width: 100%;
-    height: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: 
-        "user-info copyright user-options";
-    box-shadow: 0 -4px 8px 0 rgba(0, 0, 0, 0.5);
-    background-image: linear-gradient(to right, var(--main), var(--lightmain) 50%, var(--main));
-    padding: 15px;
-    align-items: center;
-    text-align: center;
-    font-size: 11px;
-    color: var(--black);
-    margin-top: 20px;
-  }
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "user-info copyright user-options";
+  box-shadow: 0 -4px 8px 0 rgba(0, 0, 0, 0.5);
+  background-image: linear-gradient(to right, var(--main), var(--lightmain) 50%, var(--main));
+  padding: 15px;
+  align-items: center;
+  text-align: center;
+  font-size: 11px;
+  color: var(--black);
+}
 
-  #logged-in-as {
-    grid-area: user-info;
-    display: flex;
-    justify-content: flex-start;
-    gap: 5px;
-    margin-left: 50px;
-    color: var(--darkmain);
-  }
+#logged-in-as {
+  grid-area: user-info;
+  display: flex;
+  justify-content: flex-start;
+  gap: 5px;
+  margin-left: 50px;
+  color: var(--darkmain);
+}
 
-  #copyright {
-    grid-area: copyright;
-  }
+#copyright {
+  grid-area: copyright;
+}
 
-  #user-options {
-    grid-area: user-options;
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 50px;
+#user-options {
+  grid-area: user-options;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 50px;
 }
 
 #user-options a {
-    margin-left: 2vw;
+  margin-left: 2vw;
 }
 
 #user-logged-in {

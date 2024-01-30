@@ -22,34 +22,35 @@
             </tr>
         </thead>
         <tbody>
-            <% inouts.forEach((inout) => { 
-                let displayDate = inout.dateTime.toISOString().slice(0,10);
-                let displayTime = inout.dateTime.toString().slice(16,21);
-                let displayDateTime = `${displayDate} @ ${displayTime}`;
-                %>
-                <tr>
-                    <td><%= displayDateTime %></td>
-                    <td><%= inout.user.name %></td>
-                    <td><%= inout.meditem.genericName %></td>
-                    <td><%= inout.meditem.dose %> <%= inout.meditem.form %></td>
-                    <td><% if (inout.addition) { %>
-                        + <%= inout.inout %>
-                        <% } %>
-                    </td>
-                    <td><% if (inout.depletion) { %>
-                        - <%= inout.inout %>
-                        <% } %>
-                    </td>
-                    <td><% if (inout.depletion) { %>
-                        <%= inout.depletion %>
-                        <% } %>
-                        <% if (inout.addition) { %>
-                            <%= inout.addition %>
-                        <% } %>
-                    </td>
-                    <td><%= inout.updatedStock %></td>
-                    <td><%= inout.note %></td>
-                </tr>
+            <% inouts.forEach((inout) => { %>
+                <% if (inout.meditem) { %>
+                    <% let displayDate = inout.dateTime.toISOString().slice(0,10); %>
+                    <% let displayTime = inout.dateTime.toString().slice(16,21); %>
+                    <% let displayDateTime = `${displayDate} @ ${displayTime}`; %>
+                    <tr>
+                        <td><%= displayDateTime %></td>
+                        <td><%= inout.user.name %></td>
+                        <td><%= inout.meditem.genericName %></td>
+                        <td><%= inout.meditem.dose %> <%= inout.meditem.form %></td>
+                        <td><% if (inout.addition) { %>
+                            + <%= inout.inout %>
+                            <% } %>
+                        </td>
+                        <td><% if (inout.depletion) { %>
+                            - <%= inout.inout %>
+                            <% } %>
+                        </td>
+                        <td><% if (inout.depletion) { %>
+                            <%= inout.depletion %>
+                            <% } %>
+                            <% if (inout.addition) { %>
+                                <%= inout.addition %>
+                            <% } %>
+                        </td>
+                        <td><%= inout.updatedStock %></td>
+                        <td><%= inout.note %></td>
+                    </tr>
+               <% } %>
            <% }) %>
         </tbody>
     </table>

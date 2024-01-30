@@ -11,6 +11,8 @@ const index = async (req, res) => {
       .populate('user')
       .sort('-dateTime')
 
+      console.log("Populated inouts:", inouts);
+
       res.render('inouts/index', {
           title: 'Ins/Outs',
           inouts
